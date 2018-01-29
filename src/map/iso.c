@@ -47,9 +47,9 @@ void draw_line(sfRenderWindow *window, sfVector2f point_a, sfVector2f point_b)
 
 void display_grid_point(screen_t *sc, int x, int y)
 {
-	if (x < MAP_X)
+	if (x < MAP_X - 1)
 		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y][x + 1]);
-	if (y < MAP_Y)
+	if (y < MAP_Y - 1)
 		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y + 1][x]);
 }
 

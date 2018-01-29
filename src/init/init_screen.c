@@ -18,6 +18,7 @@ int init_screen(screen_t *sc)
 	status = init_map(sc);
 	if (status == -1)
 		return (-1);
+	sc->map_2d = create_map_2d(sc->map_3d);
 	return (0);
 }
 
@@ -43,7 +44,7 @@ sfRenderWindow *create_window(void)
 	sfRenderWindow *window;
 
 	window = sfRenderWindow_create(
-		mode, TITLE, sfResize | sfClose, NULL
+		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL
 	);
 	if (!window)
 		return (NULL);

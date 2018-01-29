@@ -9,8 +9,9 @@ CC	=	gcc
 DSRC	=	$(realpath ./src)/
 DINIT	=	$(DSRC)init/
 DSTATE	=	$(DSRC)states/
+DMAP	=	$(DSRC)map/
 SRC	=	$(DSRC)main.c \
-		$(DSRC)iso.c \
+		$(DMAP)iso.c \
 		$(DINIT)init_screen.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \

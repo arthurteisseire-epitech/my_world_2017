@@ -10,7 +10,5 @@
 
 int update(screen_t *sc)
 {
-	sfTexture_updateFromPixels(
-		sc->texture, sc->buffer->pixels, WIDTH, HEIGHT, 0, 0);
 	return (0);
 }

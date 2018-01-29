@@ -15,11 +15,11 @@ void init_screen(screen_t *sc)
 
 sfRenderWindow *create_window(void)
 {
-	sfVideoMode mode = {WIDTH, HEIGHT, BIT_PER_PIXEL};
+	sfVideoMode mode = {WIDTH, HEIGHT, 32};
 	sfRenderWindow *window;
 
 	window = sfRenderWindow_create(
-		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL
+		mode, TITLE, sfResize | sfClose, NULL
 	);
 	if (!window)
 		return (NULL);

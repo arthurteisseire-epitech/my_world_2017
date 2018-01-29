@@ -15,4 +15,7 @@ typedef struct screen {
 	sfRenderWindow *window;
 } screen_t;
 
+void init_screen(screen_t *sc);
+sfRenderWindow *create_window(void);
+
 #endif

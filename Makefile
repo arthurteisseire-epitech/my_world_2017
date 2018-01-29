@@ -5,6 +5,7 @@
 ##  Ozz
 ##
 
+CC	=	gcc
 DSRC	=	$(realpath ./src)/
 DINIT	=	$(DSRC)init/
 DSTATE	=	$(DSRC)states/
@@ -25,8 +26,7 @@ CFLAGS	=	-Wall -W -Wextra -l c_graph_prog -I $(INC) -g
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	#make -C $(LIB_DIR)
-	gcc -o $(NAME) $(OBJ) -L $(LIB_DIR) -lmy $(CFLAGS)
+	$(CC) -o $(NAME) $(OBJ) -L $(LIB_DIR) -lmy $(CFLAGS)
 
 clean:
 	rm -f $(OBJ)

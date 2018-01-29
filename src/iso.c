@@ -5,6 +5,7 @@
 ** Ozz
 */
 #include "my_world.h"
+#include "screen.h"
 
 sfVector2f project_iso_point(int x, int y, int z)
 {
@@ -26,20 +27,4 @@ sfVector2f **create_map_2d(int **map_3d)
 		}
 	}
 	return (map_2d);
-}
-
-void draw_line(sfVector2f point_b, sfVector2f point_2)
-{
-	sfVertexArray *line;
-
-	sfRenderWindow_drawVertexArray(window, line, NULL);
-}
-
-void draw_map_2d(sfRenderWindow *window)
-{
-	for (int y = 0; y < MAP_Y; y++) {
-		for (int x = 0; x < MAP_X; x++) {
-			draw_line
-		}
-	}
 }

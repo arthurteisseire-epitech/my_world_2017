@@ -15,6 +15,11 @@
 #define ANGLE_Y 35
 #define MAP_X 6
 #define MAP_Y 6
+#define OFSET_X 0
+#define OFSET_Y 0
+#define SCALE_X 1
+#define SCALE_Y 1
+#define SCALE_Z 1
 
 sfVector2f project_iso_point(int x, int y, int z);
 sfVector2f **create_map_2d(int **map_3d);

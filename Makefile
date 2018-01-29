@@ -6,18 +6,19 @@
 ##
 
 DSRC	=	$(realpath ./src)/
-SRC	=	$(DSRC)main.c
+SRC	=	$(DSRC)main.c \
+		$(DSRC)iso.c
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
-LIB_DIR	=	$(realpath lib/)
+LIB_DIR	=	$(realpath lib)
 LIB	=	my
-NAME	=	
-CFLAGS	=	-Wall -W -Wextra -I $(INC) -g
+NAME	=	my_world
+CFLAGS	=	-Wall -W -Wextra -l c_graph_prog -I $(INC) -g
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	make re -C $(LIB_DIR)
+	#make -C $(LIB_DIR)
 	gcc -o $(NAME) $(OBJ) -L $(LIB_DIR) -lmy $(CFLAGS)
 
 clean:

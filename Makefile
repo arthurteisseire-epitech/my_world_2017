@@ -6,8 +6,15 @@
 ##
 
 DSRC	=	$(realpath ./src)/
+DINIT	=	$(DSRC)init/
+DSTATE	=	$(DSRC)states/
 SRC	=	$(DSRC)main.c \
-		$(DSRC)iso.c
+		$(DSRC)iso.c \
+		$(DINIT)init_screen.c \
+		$(DSTATE)event.c \
+		$(DSTATE)update.c \
+		$(DSTATE)draw.c \
+		$(DSTATE)destroy.c
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
 LIB_DIR	=	$(realpath lib)

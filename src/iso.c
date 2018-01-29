@@ -4,7 +4,7 @@
 ** File description:
 ** Ozz
 */
-#include "include.h"
+#include "my_world.h"
 
 sfVector2f project_iso_point(int x, int y, int z)
 {

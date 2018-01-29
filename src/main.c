@@ -2,17 +2,23 @@
 ** EPITECH PROJECT, 2017
 ** File Name : main.c
 ** File description:
-** Ozz
+** By Arthur Teisseire
 */
-#include "include.h"
 
-int	main()
+#include "my_world.h"
+#include "screen.h"
+#include "states.h"
+
+int main(void)
 {
-	sfVector2f iso_point;
-	int y = 1;
+	screen_t sc;
 
-	for (int x = 0; x < 10; x++) {
-		iso_point = project_iso_point(x, y, 0);
-		printf("%d %d : %f %f\n", x, y, iso_point.x, iso_point.y);
+	init_screen(&sc);
+	while (sfRenderWindow_isOpen(sc.window)) {
+		event(&sc);
+		update(&sc);
+		draw(&sc);
 	}
+	destroy(&sc);
+	return (0);
 }

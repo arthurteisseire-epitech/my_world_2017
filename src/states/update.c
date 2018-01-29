@@ -10,5 +10,6 @@
 
 int update(screen_t *sc)
 {
+	draw_map_2d(sc);
 	return (0);
 }

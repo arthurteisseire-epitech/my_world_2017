@@ -13,8 +13,8 @@
 #include <stdlib.h>
 
 #define WIDTH 800
-#define TITLE "my_world"
 #define HEIGHT 600
+#define TITLE "my_world"
 #define MAP_X 6
 #define MAP_Y 6
 #define ANGLE_X 45

@@ -33,7 +33,7 @@ sfVector2f **create_map_2d(int **map_3d)
 	return (map_2d);
 }
 
-void draw_line(screen_t *sc, sfVector2f point_a, sfVector2f point_b)
+void draw_line(sfRenderWindow *window, sfVector2f point_a, sfVector2f point_b)
 {
 	sfVertexArray *line = sfVertexArray_create();
 	sfVertex vertex_a = {.position = point_a, .color = sfWhite};
@@ -42,22 +42,22 @@ void draw_line(screen_t *sc, sfVector2f point_a, sfVector2f point_b)
 	sfVertexArray_append(line, vertex_a);
 	sfVertexArray_append(line, vertex_b);
 	sfVertexArray_setPrimitiveType(line, sfLinesStrip);
-	sfRenderWindow_drawVertexArray(sc->window, line, NULL);
+	sfRenderWindow_drawVertexArray(window, line, NULL);
 }
 
-void display_grid_point(screen_t *sc, int x, int y, sfVector2f **map)
+void display_grid_point(screen_t *sc, int x, int y)
 {
 	if (x < MAP_X)
-		draw_line(sc->window, map[y][x], map[y][x + 1]);
+		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y][x + 1]);
 	if (y < MAP_Y)
-		draw_line(sc->window, map[y][x], map[y + 1][x]);
+		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y + 1][x]);
 }
 
-void draw_map_2d(screen_t *sc, sfVector2f **map)
+void draw_map_2d(screen_t *sc)
 {
 	for (int y = 0; y < MAP_Y; y++) {
 		for (int x = 0; x < MAP_X; x++) {
-			display_grid_point(sc, x, y, map);
+			display_grid_point(sc, x, y);
 		}
 	}
 }

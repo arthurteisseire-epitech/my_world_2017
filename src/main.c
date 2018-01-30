@@ -13,7 +13,7 @@ int main(void)
 {
 	screen_t sc;
 
-	init_screen(&sc);
+	init_screen(&sc);      
 	while (sfRenderWindow_isOpen(sc.window)) {
 		event(&sc);
 		update(&sc);

@@ -6,13 +6,13 @@
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
-int event(screen_t *sc)
+int event(world_t *wd)
 {
-	while (sfRenderWindow_pollEvent(sc->window, &sc->event)) {
-		if (sc->event.type == sfEvtClosed)
-			sfRenderWindow_close(sc->window);
+	while (sfRenderWindow_pollEvent(wd->window, &wd->event)) {
+		if (wd->event.type == sfEvtClosed)
+			sfRenderWindow_close(wd->window);
 	}
 	return (0);
 }

@@ -6,11 +6,11 @@
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
-int draw(screen_t *sc)
+int draw(world_t *wd)
 {
-	sfRenderWindow_clear(sc->window, sfBlack);
-	sfRenderWindow_display(sc->window);
+	sfRenderWindow_clear(wd->window, sfBlack);
+	sfRenderWindow_display(wd->window);
 	return (0);
 }

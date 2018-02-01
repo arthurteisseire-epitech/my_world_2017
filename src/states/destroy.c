@@ -6,10 +6,10 @@
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
-int destroy(screen_t *sc)
+int destroy(world_t *wd)
 {
-	sfRenderWindow_destroy(sc->window);
+	sfRenderWindow_destroy(wd->window);
 	return (0);
 }

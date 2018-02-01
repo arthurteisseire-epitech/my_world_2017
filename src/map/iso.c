@@ -6,7 +6,7 @@
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
 sfVector2f project_iso_point(int x, int y, int z)
 {
@@ -45,19 +45,19 @@ void draw_line(sfRenderWindow *window, sfVector2f point_a, sfVector2f point_b)
 	sfRenderWindow_drawVertexArray(window, line, NULL);
 }
 
-void display_grid_point(screen_t *sc, int x, int y)
+void display_grid_point(world_t *wd, int x, int y)
 {
 	if (x < MAP_X - 1)
-		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y][x + 1]);
+		draw_line(wd->window, wd->map_2d[y][x], wd->map_2d[y][x + 1]);
 	if (y < MAP_Y - 1)
-		draw_line(sc->window, sc->map_2d[y][x], sc->map_2d[y + 1][x]);
+		draw_line(wd->window, wd->map_2d[y][x], wd->map_2d[y + 1][x]);
 }
 
-void draw_map_2d(screen_t *sc)
+void draw_map_2d(world_t *wd)
 {
 	for (int y = 0; y < MAP_Y; y++) {
 		for (int x = 0; x < MAP_X; x++) {
-			display_grid_point(sc, x, y);
+			display_grid_point(wd, x, y);
 		}
 	}
 }

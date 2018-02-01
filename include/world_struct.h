@@ -10,21 +10,21 @@
 
 #include <SFML/Graphics.h>
 
-typedef struct screen {
+typedef struct world {
 	sfEvent event;
 	sfRenderWindow *window;
 	int **map_3d;
 	sfVector2f **map_2d;
-} screen_t;
+} world_t;
 
-int init_screen(screen_t *sc);
-int init_map(screen_t *sc);
+int init_world(world_t *wd);
+int init_map(world_t *wd);
 sfRenderWindow *create_window(void);
 
 sfVector2f project_iso_point(int x, int y, int z);
 sfVector2f **create_map_2d(int **map_3d);
 void draw_line(sfRenderWindow *window, sfVector2f point_a, sfVector2f point_b);
-void display_grid_point(screen_t *sc, int x, int y);
-void draw_map_2d(screen_t *sc);
+void display_grid_point(world_t *wd, int x, int y);
+void draw_map_2d(world_t *wd);
 
 #endif

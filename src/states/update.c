@@ -10,6 +10,5 @@
 
 int update(world_t *wd)
 {
-	draw_map_2d(wd);
 	return (0);
 }

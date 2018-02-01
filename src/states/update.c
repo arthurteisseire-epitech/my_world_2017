@@ -6,10 +6,10 @@
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
-int update(screen_t *sc)
+int update(world_t *wd)
 {
-	draw_map_2d(sc);
+	draw_map_2d(wd);
 	return (0);
 }

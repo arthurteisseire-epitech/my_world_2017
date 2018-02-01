@@ -1,24 +1,24 @@
 /*
 ** EPITECH PROJECT, 2017
 ** File Name : main.c
-** File description:
+** File dewdription:
 ** By Arthur Teisseire
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 #include "states.h"
 
 int main(void)
 {
-	screen_t sc;
+	world_t wd;
 
-	init_screen(&sc);
-	while (sfRenderWindow_isOpen(sc.window)) {
-		event(&sc);
-		update(&sc);
-		draw(&sc);
+	init_world(&wd);
+	while (sfRenderWindow_isOpen(wd.window)) {
+		event(&wd);
+		update(&wd);
+		draw(&wd);
 	}
-	destroy(&sc);
+	destroy(&wd);
 	return (0);
 }

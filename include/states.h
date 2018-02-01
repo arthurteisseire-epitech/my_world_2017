@@ -8,9 +8,9 @@
 #ifndef STATES_H
 #define STATES_H
 
-int destroy(screen_t *sc);
-int draw(screen_t *sc);
-int event(screen_t *sc);
-int update(screen_t *sc);
+int destroy(world_t *wd);
+int draw(world_t *wd);
+int event(world_t *wd);
+int update(world_t *wd);
 
 #endif

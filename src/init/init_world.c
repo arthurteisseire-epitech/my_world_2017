@@ -1,39 +1,39 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : init_screen.c
+** File Name : init_world.c
 ** File description:
 ** By Arthur Teisseire
 */
 
 #include "my_world.h"
-#include "screen.h"
+#include "world_struct.h"
 
-int init_screen(screen_t *sc)
+int init_world(world_t *wd)
 {
 	int status;
 
-	sc->window = create_window();
-	if (sc->window == NULL)
+	wd->window = create_window();
+	if (wd->window == NULL)
 		return (-1);
-	status = init_map(sc);
+	status = init_map(wd);
 	if (status == -1)
 		return (-1);
-	sc->map_2d = create_map_2d(sc->map_3d);
+	wd->map_2d = create_map_2d(wd->map_3d);
 	return (0);
 }
 
-int init_map(screen_t *sc)
+int init_map(world_t *wd)
 {
-	sc->map_3d = malloc(sizeof(int *) * MAP_Y);
+	wd->map_3d = malloc(sizeof(int *) * MAP_Y);
 
-	if (sc->map_3d == NULL)
+	if (wd->map_3d == NULL)
 		return (-1);
 	for (int y = 0; y < MAP_Y; y++) {
-		sc->map_3d[y] = malloc(sizeof(int) * MAP_X);
-		if (sc->map_3d[y] == NULL)
+		wd->map_3d[y] = malloc(sizeof(int) * MAP_X);
+		if (wd->map_3d[y] == NULL)
 			return (-1);
 		for (int x = 0; x < MAP_X; x++)
-			sc->map_3d[y][x] = 0;
+			wd->map_3d[y][x] = 0;
 	}
 	return (0);
 }

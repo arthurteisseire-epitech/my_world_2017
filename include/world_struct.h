@@ -23,7 +23,7 @@ sfRenderWindow *create_window(void);
 
 sfVector2f project_iso_point(int x, int y, int z);
 sfVector2f **create_map_2d(int **map_3d);
-void draw_line(sfRenderWindow *window, sfVector2f point_a, sfVector2f point_b);
+void draw_line(world_t *wd, sfVector2f point_a, sfVector2f point_b);
 void display_grid_point(world_t *wd, int x, int y);
 void draw_map_2d(world_t *wd);
 

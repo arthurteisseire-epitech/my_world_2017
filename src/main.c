@@ -1,7 +1,7 @@
 /*
 ** EPITECH PROJECT, 2017
 ** File Name : main.c
-** File dewdription:
+** File description:
 ** By Arthur Teisseire
 */
 

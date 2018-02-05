@@ -13,13 +13,10 @@
 
 int init_world(world_t *wd)
 {
-	int status;
-
 	wd->window = create_window();
 	if (wd->window == NULL)
 		return (-1);
-	status = init_map(wd);
-	if (status == -1)
+	if (init_map(wd) == -1)
 		return (-1);
 	if (init_camera(wd) == -1)
 		return (-1);
@@ -63,8 +60,7 @@ sfRenderWindow *create_window(void)
 	sfRenderWindow *window;
 
 	window = sfRenderWindow_create(
-		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL
-	);
+		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL);
 	if (!window)
 		return (NULL);
 	sfRenderWindow_setFramerateLimit(window, 60);

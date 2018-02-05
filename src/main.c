@@ -11,14 +11,5 @@
 
 int main(void)
 {
-	world_t wd;
-
-	init_world(&wd);
-	while (sfRenderWindow_isOpen(wd.window)) {
-		event(&wd);
-		update(&wd);
-		draw(&wd);
-	}
-	destroy(&wd);
-	return (0);
+	return (run());
 }

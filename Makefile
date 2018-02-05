@@ -12,7 +12,7 @@ DSTATE	=	$(DSRC)states/
 DMAP	=	$(DSRC)map/
 DESTROY	=	$(DSRC)destroy/
 SRC	=	$(DSRC)main.c \
-		$(DSRC)run.c \
+		$(DSRC)game_loop.c \
 		$(DMAP)iso.c \
 		$(DINIT)init_world.c \
 		$(DSTATE)event.c \

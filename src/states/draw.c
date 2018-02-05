@@ -6,7 +6,7 @@
 */
 
 #include "my_world.h"
-#include "world_struct.h"
+#include "map_2d.h"
 
 int draw(world_t *wd)
 {

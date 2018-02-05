@@ -9,8 +9,9 @@
 #define CAMERA_H
 
 typedef struct camera {
-	sfVector2f offset;
 	sfVector3f scale;
+	sfVector2f offset;
+	sfVector2f angle;
 } camera_t;
 
 int init_camera(world_t *wd);

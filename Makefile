@@ -10,13 +10,14 @@ DSRC	=	$(realpath ./src)/
 DINIT	=	$(DSRC)init/
 DSTATE	=	$(DSRC)states/
 DMAP	=	$(DSRC)map/
+DESTROY	=	$(DSRC)destroy/
 SRC	=	$(DSRC)main.c \
 		$(DMAP)iso.c \
 		$(DINIT)init_world.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \
-		$(DSTATE)destroy.c
+		$(DESTROY)destroy.c
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
 DLIB	=	$(realpath lib)

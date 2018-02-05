@@ -6,8 +6,9 @@
 */
 
 #include "my_world.h"
-#include "world_struct.h"
 #include "camera.h"
+#include "init.h"
+#include "map_2d.h"
 
 int init_world(world_t *wd)
 {
@@ -35,13 +36,14 @@ int init_camera(world_t *wd)
 	wd->cam->scale.z = 200;
 	wd->cam->offset.x = WIDTH / 2;
 	wd->cam->offset.y = -HEIGHT / 2;
+	wd->cam->angle.x = 45;
+	wd->cam->angle.y = 35;
 	return (0);
 }
 
 int init_map(world_t *wd)
 {
 	wd->map_3d = malloc(sizeof(int *) * MAP_Y);
-
 	if (wd->map_3d == NULL)
 		return (-1);
 	for (int y = 0; y < MAP_Y; y++) {

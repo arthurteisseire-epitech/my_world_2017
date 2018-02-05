@@ -6,15 +6,14 @@
 */
 
 #include "my_world.h"
-#include "world_struct.h"
 #include "camera.h"
 
-sfVector2f project_iso_point(int x, int y, int z)
+sfVector2f project_iso_point(camera_t *cam, int x, int y, int z)
 {
 	sfVector2f point_2d;
 
-	point_2d.x = cos(ANGLE_X) * x - cos(ANGLE_X) * y;
-	point_2d.y = -(sin(ANGLE_Y) * y + sin(ANGLE_Y) * x - z);
+	point_2d.x = cos(cam->angle.x) * x - cos(cam->angle.x) * y;
+	point_2d.y = -(sin(cam->angle.y) * y + sin(cam->angle.y) * x - z);
 	return (point_2d);
 }
 
@@ -26,6 +25,7 @@ sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 		map_2d[y] = malloc(sizeof(sfVector2f) * MAP_X);
 		for (int x = 0; x < MAP_X; x++) {
 			map_2d[y][x] = project_iso_point(
+			cam,
 			x * cam->scale.x + cam->offset.x, 
 			y * cam->scale.y + cam->offset.y, 
 			map_3d[y][x] * cam->scale.z);

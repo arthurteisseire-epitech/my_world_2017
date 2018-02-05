@@ -17,16 +17,15 @@
 #define TITLE "my_world"
 #define MAP_X 6
 #define MAP_Y 6
-#define ANGLE_X 45
-#define ANGLE_Y 35
-#define OFSET_X 600
-#define OFSET_Y 0
-#define SCALE_X 100
-#define SCALE_Y 100
-#define SCALE_Z 100
 
 typedef struct camera camera_t;
 
-sfVector2f project_iso_point(int x, int y, int z);
+typedef struct world {
+	camera_t *cam;
+	sfEvent event;
+	sfRenderWindow *window;
+	int **map_3d;
+	sfVector2f **map_2d;
+} world_t;
 
 #endif

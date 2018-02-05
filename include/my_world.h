@@ -26,4 +26,6 @@ typedef struct world {
 	sfVector2f **map_2d;
 } world_t;
 
+int run(void);
+
 #endif

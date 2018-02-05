@@ -7,6 +7,7 @@
 
 #include "my_world.h"
 #include "world_struct.h"
+#include "camera.h"
 
 sfVector2f project_iso_point(int x, int y, int z)
 {
@@ -17,7 +18,7 @@ sfVector2f project_iso_point(int x, int y, int z)
 	return (point_2d);
 }
 
-sfVector2f **create_map_2d(int **map_3d)
+sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 {
 	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * MAP_Y);
 
@@ -25,9 +26,9 @@ sfVector2f **create_map_2d(int **map_3d)
 		map_2d[y] = malloc(sizeof(sfVector2f) * MAP_X);
 		for (int x = 0; x < MAP_X; x++) {
 			map_2d[y][x] = project_iso_point(
-			x * SCALE_X + OFSET_X, 
-			y * SCALE_Y + OFSET_Y, 
-			map_3d[y][x] * SCALE_Z);
+			x * cam->scale.x + cam->offset.x, 
+			y * cam->scale.y + cam->offset.y, 
+			map_3d[y][x] * cam->scale.z);
 		}
 	}
 	return (map_2d);

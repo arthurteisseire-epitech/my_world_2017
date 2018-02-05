@@ -7,6 +7,7 @@
 
 #include "my_world.h"
 #include "world_struct.h"
+#include "camera.h"
 
 int init_world(world_t *wd)
 {
@@ -18,7 +19,22 @@ int init_world(world_t *wd)
 	status = init_map(wd);
 	if (status == -1)
 		return (-1);
-	wd->map_2d = create_map_2d(wd->map_3d);
+	if (init_camera(wd) == -1)
+		return (-1);
+	wd->map_2d = create_map_2d(wd->cam, wd->map_3d);
+	return (0);
+}
+
+int init_camera(world_t *wd)
+{
+	wd->cam = malloc(sizeof(camera_t));
+	if (wd->cam == NULL)
+		return (-1);
+	wd->cam->scale.x = 200;
+	wd->cam->scale.y = 200;
+	wd->cam->scale.z = 200;
+	wd->cam->offset.x = WIDTH / 2;
+	wd->cam->offset.y = -HEIGHT / 2;
 	return (0);
 }
 

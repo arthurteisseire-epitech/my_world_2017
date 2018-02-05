@@ -6,8 +6,8 @@
 */
 
 #include "my_world.h"
-#include "world_struct.h"
 #include "states.h"
+#include "init.h"
 
 int main(void)
 {

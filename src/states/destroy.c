@@ -6,7 +6,6 @@
 */
 
 #include "my_world.h"
-#include "world_struct.h"
 
 int destroy(world_t *wd)
 {

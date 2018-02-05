@@ -5,6 +5,8 @@
 ** Ozz
 */
 
+#include <stdlib.h>
+#include <math.h>
 #include "my_world.h"
 #include "camera.h"
 

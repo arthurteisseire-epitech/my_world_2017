@@ -5,6 +5,7 @@
 ** By Arthur Teisseire
 */
 
+#include <stdlib.h>
 #include "my_world.h"
 #include "camera.h"
 #include "init.h"

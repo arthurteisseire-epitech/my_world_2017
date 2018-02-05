@@ -9,8 +9,6 @@
 #define MY_WORLD_H
 
 #include <SFML/Graphics.h>
-#include <math.h>
-#include <stdlib.h>
 
 #define WIDTH 1920
 #define HEIGHT 1080

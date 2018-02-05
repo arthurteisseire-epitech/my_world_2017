@@ -25,7 +25,8 @@
 #define SCALE_Y 100
 #define SCALE_Z 100
 
+typedef struct camera camera_t;
+
 sfVector2f project_iso_point(int x, int y, int z);
-sfVector2f **create_map_2d(int **map_3d);
 
 #endif

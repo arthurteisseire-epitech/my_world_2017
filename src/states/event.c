@@ -12,6 +12,8 @@ int event(world_t *wd)
 	while (sfRenderWindow_pollEvent(wd->window, &wd->event)) {
 		if (wd->event.type == sfEvtClosed)
 			sfRenderWindow_close(wd->window);
+		if (sfKeyboard_isKeyPressed(sfKeyEscape))
+			sfRenderWindow_close(wd->window);
 	}
 	return (0);
 }

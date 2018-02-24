@@ -11,10 +11,12 @@ DINIT	=	$(DSRC)init/
 DSTATE	=	$(DSRC)states/
 DMAP	=	$(DSRC)map/
 DESTROY	=	$(DSRC)destroy/
+DINPUT	=	$(DSRC)input/
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
 		$(DMAP)iso.c \
 		$(DINIT)init_world.c \
+		$(DINPUT)move_map.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \

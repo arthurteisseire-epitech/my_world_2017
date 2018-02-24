@@ -46,6 +46,7 @@ void draw_line(world_t *wd, sfVector2f point_a, sfVector2f point_b)
 	sfVertexArray_append(line, vertex_b);
 	sfVertexArray_setPrimitiveType(line, sfLinesStrip);
 	sfRenderWindow_drawVertexArray(wd->window, line, NULL);
+	sfVertexArray_destroy(line);
 }
 
 void display_grid_point(world_t *wd, int x, int y)

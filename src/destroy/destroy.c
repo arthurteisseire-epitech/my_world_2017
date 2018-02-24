@@ -14,6 +14,7 @@ int destroy(world_t *wd)
 	sfRenderWindow_destroy(wd->window);
 	free(wd->cam);
 	free_map_3d(wd->map_3d);
+	free_map_2d(wd->map_2d);
 	return (0);
 }
 

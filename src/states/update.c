@@ -9,5 +9,6 @@
 
 int update(world_t *wd)
 {
+	(void)wd;
 	return (0);
 }

@@ -8,6 +8,7 @@
 #include "my_world.h"
 #include "states.h"
 #include "init.h"
+#include "destroy.h"
 
 int run(void)
 {

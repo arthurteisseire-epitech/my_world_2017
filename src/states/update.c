@@ -6,9 +6,13 @@
 */
 
 #include "my_world.h"
+#include "map_2d.h"
+#include "destroy.h"
 
 int update(world_t *wd)
 {
-	(void)wd;
+	if (wd->map_2d)
+		free_map_2d(wd->map_2d);
+	wd->map_2d = create_map_2d(wd->cam, wd->map_3d);
 	return (0);
 }

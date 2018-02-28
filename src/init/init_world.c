@@ -20,6 +20,8 @@ int init_world(world_t *wd)
 		return (-1);
 	if (init_camera(wd) == -1)
 		return (-1);
+	if (init_textures(wd) == -1)
+		return (-1);
 	wd->map_2d = create_map_2d(wd->cam, wd->map_3d);
 	return (0);
 }
@@ -36,6 +38,17 @@ int init_camera(world_t *wd)
 	wd->cam->offset.y = -HEIGHT / 2;
 	wd->cam->angle.x = 45;
 	wd->cam->angle.y = 35;
+	return (0);
+}
+
+int init_textures(world_t *wd)
+{
+	wd->textures = malloc(sizeof(sfTexture *) * NB_TEXTURE);
+	if (wd->textures == NULL)
+		return (-1);
+	wd->textures[0] = sfTexture_createFromFile("assets/bsd.png", NULL);
+	if (wd->textures[0] == NULL)
+		return (-1);
 	return (0);
 }
 

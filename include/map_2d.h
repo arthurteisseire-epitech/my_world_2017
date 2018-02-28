@@ -14,7 +14,7 @@ typedef struct world world_t;
 sfVector2f project_iso_point(camera_t *cam, int x, int y, int z);
 sfVector2f **create_map_2d(camera_t *cam, int **map_3d);
 int draw_shape(world_t *wd, sfVector2f *square_pos);
-void display_shape(world_t *wd, int x, int y);
-void draw_map_2d(world_t *wd);
+int display_shape(world_t *wd, int x, int y);
+int draw_map_2d(world_t *wd);
 
 #endif

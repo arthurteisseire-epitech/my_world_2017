@@ -12,9 +12,18 @@
 int destroy(world_t *wd)
 {
 	sfRenderWindow_destroy(wd->window);
+	destroy_textures(wd->textures);
 	free(wd->cam);
 	free_map_3d(wd->map_3d);
 	free_map_2d(wd->map_2d);
+	return (0);
+}
+
+int destroy_textures(sfTexture **textures)
+{
+	for (int i = 0; i < NB_TEXTURE; i++)
+		sfTexture_destroy(textures[i]);
+	free(textures);
 	return (0);
 }
 

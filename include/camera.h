@@ -14,6 +14,4 @@ typedef struct camera {
 	sfVector2f angle;
 } camera_t;
 
-int init_camera(world_t *wd);
-
 #endif

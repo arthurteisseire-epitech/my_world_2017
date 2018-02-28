@@ -43,21 +43,17 @@ sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 int draw_shape(world_t *wd, sfVector2f *square_pos)
 {
 	sfConvexShape *shape = sfConvexShape_create();
-	sfTexture *texture;
 	
 	if (shape == NULL)
-		return (-1);
-	texture = sfTexture_createFromFile("assets/bsd.png", NULL);
-	if (texture == NULL)
 		return (-1);
 	sfConvexShape_setPointCount(shape, 4);
 	for (int i = 0; i < 4; i++)
 		sfConvexShape_setPoint(shape, i, square_pos[i]);
-	sfConvexShape_setTexture(shape, texture, sfTrue);
+	sfConvexShape_setTexture(shape, wd->textures[0], sfTrue);
 	sfConvexShape_setOutlineThickness(shape, 2.0);
 	sfConvexShape_setOutlineColor(shape, sfBlack);
 	sfRenderWindow_drawConvexShape(wd->window, shape, NULL);
-	free(shape);
+	sfConvexShape_destroy(shape);
 	return (0);
 }
 
@@ -75,11 +71,12 @@ int display_shape(world_t *wd, int x, int y)
 	return (0);
 }
 
-void draw_map_2d(world_t *wd)
+int draw_map_2d(world_t *wd)
 {
 	for (int y = 0; y < NB_ROW - 1; y++) {
 		for (int x = 0; x < NB_COL - 1; x++) {
 			display_shape(wd, x, y);
 		}
 	}
+	return (0);
 }

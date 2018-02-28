@@ -9,5 +9,6 @@
 #define INPUT_H
 
 int move_offset_map(world_t *wd);
+int scale_map(world_t *wd);
 
 #endif

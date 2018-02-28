@@ -17,6 +17,7 @@ int event(world_t *wd)
 		if (sfKeyboard_isKeyPressed(sfKeyEscape))
 			sfRenderWindow_close(wd->window);
 		move_offset_map(wd);
+		scale_map(wd);
 	}
 	return (0);
 }

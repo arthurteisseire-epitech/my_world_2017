@@ -21,11 +21,11 @@ sfVector2f project_iso_point(camera_t *cam, int x, int y, int z)
 
 sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 {
-	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * MAP_Y);
+	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * NB_ROW);
 
-	for (int y = 0; y < MAP_Y; y++) {
-		map_2d[y] = malloc(sizeof(sfVector2f) * MAP_X);
-		for (int x = 0; x < MAP_X; x++) {
+	for (int y = 0; y < NB_ROW; y++) {
+		map_2d[y] = malloc(sizeof(sfVector2f) * NB_COL);
+		for (int x = 0; x < NB_COL; x++) {
 			map_2d[y][x] = project_iso_point(
 			cam,
 			x * cam->scale.x + cam->offset.x, 
@@ -51,16 +51,16 @@ void draw_line(world_t *wd, sfVector2f point_a, sfVector2f point_b)
 
 void display_grid_point(world_t *wd, int x, int y)
 {
-	if (x < MAP_X - 1)
+	if (x < NB_COL - 1)
 		draw_line(wd, wd->map_2d[y][x], wd->map_2d[y][x + 1]);
-	if (y < MAP_Y - 1)
+	if (y < NB_ROW - 1)
 		draw_line(wd, wd->map_2d[y][x], wd->map_2d[y + 1][x]);
 }
 
 void draw_map_2d(world_t *wd)
 {
-	for (int y = 0; y < MAP_Y; y++) {
-		for (int x = 0; x < MAP_X; x++) {
+	for (int y = 0; y < NB_ROW; y++) {
+		for (int x = 0; x < NB_COL; x++) {
 			display_grid_point(wd, x, y);
 		}
 	}

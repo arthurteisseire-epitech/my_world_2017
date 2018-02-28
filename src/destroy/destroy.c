@@ -20,8 +20,8 @@ int destroy(world_t *wd)
 
 int free_map_2d(sfVector2f **map_2d)
 {
-	for (int y = 0; y < MAP_Y; y++) {
-		free(map_2d[y]);
+	for (int row = 0; row < NB_ROW; row++) {
+		free(map_2d[row]);
 	}
 	free(map_2d);
 	return (0);
@@ -29,8 +29,8 @@ int free_map_2d(sfVector2f **map_2d)
 
 int free_map_3d(int **map_3d)
 {
-	for (int y = 0; y < MAP_Y; y++) {
-		free(map_3d[y]);
+	for (int row = 0; row < NB_ROW; row++) {
+		free(map_3d[row]);
 	}
 	free(map_3d);
 	return (0);

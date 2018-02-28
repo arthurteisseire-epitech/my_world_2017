@@ -41,14 +41,14 @@ int init_camera(world_t *wd)
 
 int init_map(world_t *wd)
 {
-	wd->map_3d = malloc(sizeof(int *) * MAP_Y);
+	wd->map_3d = malloc(sizeof(int *) * NB_ROW);
 	if (wd->map_3d == NULL)
 		return (-1);
-	for (int y = 0; y < MAP_Y; y++) {
-		wd->map_3d[y] = malloc(sizeof(int) * MAP_X);
+	for (int y = 0; y < NB_ROW; y++) {
+		wd->map_3d[y] = malloc(sizeof(int) * NB_COL);
 		if (wd->map_3d[y] == NULL)
 			return (-1);
-		for (int x = 0; x < MAP_X; x++)
+		for (int x = 0; x < NB_COL; x++)
 			wd->map_3d[y][x] = 0;
 	}
 	return (0);

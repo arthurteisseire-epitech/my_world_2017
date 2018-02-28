@@ -17,6 +17,7 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)iso.c \
 		$(DINIT)init_world.c \
 		$(DINPUT)move_map.c \
+		$(DINPUT)click.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \

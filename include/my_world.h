@@ -14,7 +14,7 @@
 #define HEIGHT 1080
 #define TITLE "my_world"
 #define NB_COL 6
-#define NB_ROW 5
+#define NB_ROW 6
 
 typedef struct camera camera_t;
 

@@ -23,8 +23,12 @@ sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 {
 	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * NB_ROW);
 
+	if (map_2d == NULL)
+		return (NULL);
 	for (int y = 0; y < NB_ROW; y++) {
 		map_2d[y] = malloc(sizeof(sfVector2f) * NB_COL);
+		if (map_2d[y] == NULL)
+			return (NULL);
 		for (int x = 0; x < NB_COL; x++) {
 			map_2d[y][x] = project_iso_point(
 			cam,
@@ -36,32 +40,39 @@ sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 	return (map_2d);
 }
 
-void draw_line(world_t *wd, sfVector2f point_a, sfVector2f point_b)
+void draw_shape(world_t *wd, sfVector2f *square_pos)
 {
-	sfVertexArray *line = sfVertexArray_create();
-	sfVertex vertex_a = {.position = point_a, .color = sfWhite};
-	sfVertex vertex_b = {.position = point_b, .color = sfWhite};
-
-	sfVertexArray_append(line, vertex_a);
-	sfVertexArray_append(line, vertex_b);
-	sfVertexArray_setPrimitiveType(line, sfLinesStrip);
-	sfRenderWindow_drawVertexArray(wd->window, line, NULL);
-	sfVertexArray_destroy(line);
+	sfConvexShape *shape = sfConvexShape_create();
+	
+	if (shape == NULL)
+		return;
+	sfConvexShape_setPointCount(shape, 4);
+	for (int i = 0; i < 4; i++)
+		sfConvexShape_setPoint(shape, i, square_pos[i]);
+	sfConvexShape_setFillColor(shape, sfRed);
+	sfConvexShape_setOutlineThickness(shape, 2.0);
+	sfConvexShape_setOutlineColor(shape, sfBlack);
+	sfRenderWindow_drawConvexShape(wd->window, shape, NULL);
+	free(shape);
 }
 
-void display_grid_point(world_t *wd, int x, int y)
+void display_shape(world_t *wd, int x, int y)
 {
-	if (x < NB_COL - 1)
-		draw_line(wd, wd->map_2d[y][x], wd->map_2d[y][x + 1]);
-	if (y < NB_ROW - 1)
-		draw_line(wd, wd->map_2d[y][x], wd->map_2d[y + 1][x]);
+	sfVector2f square_pos[4] = {
+		wd->map_2d[y][x],
+		wd->map_2d[y][x + 1],
+		wd->map_2d[y + 1][x + 1],
+		wd->map_2d[y + 1][x],
+	};
+
+	draw_shape(wd, square_pos);
 }
 
 void draw_map_2d(world_t *wd)
 {
-	for (int y = 0; y < NB_ROW; y++) {
-		for (int x = 0; x < NB_COL; x++) {
-			display_grid_point(wd, x, y);
+	for (int y = 0; y < NB_ROW - 1; y++) {
+		for (int x = 0; x < NB_COL - 1; x++) {
+			display_shape(wd, x, y);
 		}
 	}
 }

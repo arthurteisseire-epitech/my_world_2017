@@ -22,6 +22,8 @@ int init_world(world_t *wd)
 		return (-1);
 	if (init_textures(wd) == -1)
 		return (-1);
+	if (init_toolbar(wd) == -1)
+		return (-1);
 	wd->map_2d = create_map_2d(wd->cam, wd->map_3d);
 	return (0);
 }

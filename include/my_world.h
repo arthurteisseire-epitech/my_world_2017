@@ -14,7 +14,8 @@
 #define HEIGHT 1080
 #define TITLE "my_world"
 #define NB_COL 6
-#define NB_ROW 5
+#define NB_ROW 6
+#define NB_TEXTURE 1
 
 typedef struct camera camera_t;
 
@@ -24,6 +25,7 @@ typedef struct world {
 	sfRenderWindow *window;
 	int **map_3d;
 	sfVector2f **map_2d;
+	sfTexture **textures;
 } world_t;
 
 int run(void);

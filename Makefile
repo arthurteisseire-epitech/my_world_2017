@@ -18,6 +18,7 @@ SRC	=	$(DSRC)main.c \
 		$(DINIT)init_world.c \
 		$(DINIT)init_toolbar.c \
 		$(DINPUT)move_map.c \
+		$(DINPUT)click.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \

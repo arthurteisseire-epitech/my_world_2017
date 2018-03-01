@@ -19,6 +19,8 @@ int destroy(world_t *wd)
 	free_map_3d(wd->map->map_3d);
 	free_map_2d(wd->map->map_2d);
 	free_toolbar(wd->toolbar);
+	free_tiles(wd->map->tiles);
+	free(wd->map);
 	return (0);
 }
 

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : map_2d.h
+** File Name : map.h
 ** File description:
 ** by Arthur Teisseire
 */

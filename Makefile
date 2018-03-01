@@ -27,7 +27,8 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \
-		$(DESTROY)destroy.c
+		$(DESTROY)destroy.c \
+		$(DESTROY)free_tiles.c
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
 DLIB	=	$(realpath lib)

@@ -44,3 +44,9 @@ int set_shape(map_t *map, int x, int y)
 		sfConvexShape_setPoint(map->tiles[x][y].shape, i, square_pos[i]);
 	return (0);
 }
+
+void set_vector(sfVector2i *vec, int x, int y)
+{
+	vec->x = x;
+	vec->y = y;
+}

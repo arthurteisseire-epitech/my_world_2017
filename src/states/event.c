@@ -8,6 +8,7 @@
 #include "my_world.h"
 #include "camera.h"
 #include "input.h"
+#include "toolbar.h"
 
 sfVector2i get_mouse_pos(sfEvent event)
 {
@@ -25,9 +26,13 @@ int event(world_t *wd)
 			sfRenderWindow_close(wd->window);
 		if (sfKeyboard_isKeyPressed(sfKeyEscape))
 			sfRenderWindow_close(wd->window);
-		if (wd->event.type == sfEvtMouseButtonPressed)
+		if (wd->event.type == sfEvtMouseButtonPressed) {
 			if (wd->event.mouseButton.button == sfMouseLeft)
-				check_map_2d(wd, get_mouse_pos(wd->event));
+				wd->toolbar->increasing = 1;
+			if (wd->event.mouseButton.button == sfMouseRight)
+				wd->toolbar->increasing = 0;
+			check_map_2d(wd, get_mouse_pos(wd->event));
+		}
 		move_offset_map(wd);
 		scale_map(wd);
 	}

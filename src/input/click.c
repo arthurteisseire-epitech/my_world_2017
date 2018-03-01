@@ -20,31 +20,33 @@ int is_mouse_in_tile(world_t *wd, sfVector2i pos)
 */
 void raise(world_t *wd, sfVector2i pt)
 {
-	wd->map->map_3d[pt.x][pt.y]--;
+	int raise = wd->toolbar->increasing ? -1 : 1;
+
+	wd->map->map_3d[pt.x][pt.y] += raise;
 	if (wd->toolbar->tile_mode == 1) {
 		if (pt.y + 1 < NB_ROW)
-		wd->map->map_3d[pt.x][pt.y + 1]--;
+		wd->map->map_3d[pt.x][pt.y + 1] += raise;
 		if (pt.x + 1 < NB_COL)
-		wd->map->map_3d[pt.x + 1][pt.y]--;
+		wd->map->map_3d[pt.x + 1][pt.y] += raise;
 		if (pt.x + 1 < NB_COL && pt.y + 1 < NB_COL)
-		wd->map->map_3d[pt.x + 1][pt.y + 1]--;
+		wd->map->map_3d[pt.x + 1][pt.y + 1] += raise;
 	}
 }
 
-void detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
+int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 {
 	int map_x = wd->map->map_2d[pt.x][pt.y].x;
 	int map_y = wd->map->map_2d[pt.x][pt.y].y;
 	int mouse_x = pos.x;
 	int mouse_y = pos.y;
 
-	//printf("MOUSE X:%d Y:%d\n", pos.x, pos.y);
-	//printf("MAP X:%d Y:%d\n", map_x, map_y);
 	if (map_x - RADIUS < mouse_x && mouse_x < map_x + RADIUS) {
 		if (map_y - RADIUS < mouse_y && mouse_y < map_y + RADIUS) {
 			raise(wd, pt);
+			return (1);
 		}
 	}
+	return (0);
 }
 
 int check_map_2d(world_t *wd, sfVector2i pos)
@@ -57,7 +59,8 @@ int check_map_2d(world_t *wd, sfVector2i pos)
 		pt.y = NB_COL;
 		while (pt.y > 0) {
 			pt.y--;
-			detect_point(wd, pt, pos);
+			if (detect_point(wd, pt, pos))
+				return (1);
 		}
 	}
 	return (0);

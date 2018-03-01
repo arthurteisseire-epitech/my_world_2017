@@ -8,7 +8,7 @@
 #ifndef TOOLBAR_H
 #define TOOLBAR_H
 
-#define NB_TOOLS 1
+#define NB_TOOLS 3
 
 typedef struct tool {
 	sfVector2f size;

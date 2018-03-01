@@ -15,8 +15,8 @@ int draw(world_t *wd)
 {
 	sfRenderWindow_clear(wd->window, sfBlack);
 	draw_map_2d(wd);
-	sfRenderWindow_display(wd->window);
 	toolbar_disp(wd);
+	sfRenderWindow_display(wd->window);
 	return (0);
 }
 

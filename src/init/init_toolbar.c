@@ -35,18 +35,28 @@ int init_tools(toolbar_t *toolbar)
 		tool->rect = sfRectangleShape_create();
 		if (tool->rect == NULL)
 			return (-1);
-		tool->size.x = 50;
-		tool->size.y = 50;
+		tool->size.x = 120;
+		tool->size.y = 120;
 		if (i == 0) {
 			tool->pos.x = toolbar->pos.x;
 			tool->pos.y = toolbar->pos.y;
 		} else {
-			tool->pos.x = toolbar->tool[i - 1].pos.x + toolbar->offset.x;
+			tool->pos.x = toolbar->tool[i - 1].pos.x + 
+					toolbar->offset.x + 
+					toolbar->tool[i - 1].size.x;
 			tool->pos.y = toolbar->tool[i - 1].pos.y;
 		}
-		sfRectangleShape_setSize(tool->rect, tool->size);
-		sfRectangleShape_setPosition(tool->rect, tool->pos);
-		sfRectangleShape_setFillColor(tool->rect, sfRed);
+		set_rectangle(tool);
 	}
+	return (0);
+}
+
+int set_rectangle(tool_t *tool)
+{
+	sfRectangleShape_setSize(tool->rect, tool->size);
+	sfRectangleShape_setPosition(tool->rect, tool->pos);
+	sfRectangleShape_setFillColor(tool->rect, sfRed);
+	sfRectangleShape_setOutlineThickness(tool->rect, 2.0);
+	sfRectangleShape_setOutlineColor(tool->rect, sfRed);
 	return (0);
 }

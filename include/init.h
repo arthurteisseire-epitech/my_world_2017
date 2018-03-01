@@ -10,6 +10,7 @@
 
 typedef struct camera camera_t;
 typedef struct world world_t;
+typedef struct tool tool_t;
 
 int init_world(world_t *wd);
 int init_map(world_t *wd);
@@ -17,6 +18,7 @@ int init_textures(world_t *wd);
 int init_camera(world_t *wd);
 int init_toolbar(world_t *wd);
 int init_tools(toolbar_t *toolbar);
+int set_rectangle(tool_t *tool);
 sfRenderWindow *create_window(void);
 
 #endif

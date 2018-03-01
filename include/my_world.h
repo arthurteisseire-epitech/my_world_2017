@@ -19,15 +19,15 @@
 
 typedef struct camera camera_t;
 typedef struct toolbar toolbar_t;
+typedef struct map map_t;
 
 typedef struct world {
 	camera_t *cam;
 	sfEvent event;
 	sfRenderWindow *window;
-	int **map_3d;
-	sfVector2f **map_2d;
 	sfTexture **textures;
 	toolbar_t *toolbar;
+	map_t *map;
 } world_t;
 
 int run(void);

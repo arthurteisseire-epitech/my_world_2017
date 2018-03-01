@@ -9,14 +9,15 @@
 #include "my_world.h"
 #include "destroy.h"
 #include "toolbar.h"
+#include "map.h"
 
 int destroy(world_t *wd)
 {
 	sfRenderWindow_destroy(wd->window);
 	destroy_textures(wd->textures);
 	free(wd->cam);
-	free_map_3d(wd->map_3d);
-	free_map_2d(wd->map_2d);
+	free_map_3d(wd->map->map_3d);
+	free_map_2d(wd->map->map_2d);
 	free_toolbar(wd->toolbar);
 	return (0);
 }

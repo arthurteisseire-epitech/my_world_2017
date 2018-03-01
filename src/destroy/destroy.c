@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "my_world.h"
 #include "destroy.h"
+#include "toolbar.h"
 
 int destroy(world_t *wd)
 {
@@ -16,6 +17,7 @@ int destroy(world_t *wd)
 	free(wd->cam);
 	free_map_3d(wd->map_3d);
 	free_map_2d(wd->map_2d);
+	free_toolbar(wd->toolbar);
 	return (0);
 }
 
@@ -42,5 +44,14 @@ int free_map_3d(int **map_3d)
 		free(map_3d[row]);
 	}
 	free(map_3d);
+	return (0);
+}
+
+int free_toolbar(toolbar_t *toolbar)
+{
+	for (int i = 0; i < NB_TOOLS; i++)
+		sfRectangleShape_destroy(toolbar->tool[i].rect);
+	free(toolbar->tool);
+	free(toolbar);
 	return (0);
 }

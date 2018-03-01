@@ -16,6 +16,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
 		$(DMAP)iso.c \
 		$(DINIT)init_world.c \
+		$(DINIT)init_toolbar.c \
 		$(DINPUT)move_map.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \

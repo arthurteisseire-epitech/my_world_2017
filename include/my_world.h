@@ -18,6 +18,7 @@
 #define NB_TEXTURE 1
 
 typedef struct camera camera_t;
+typedef struct toolbar toolbar_t;
 
 typedef struct world {
 	camera_t *cam;
@@ -26,6 +27,7 @@ typedef struct world {
 	int **map_3d;
 	sfVector2f **map_2d;
 	sfTexture **textures;
+	toolbar_t *toolbar;
 } world_t;
 
 int run(void);

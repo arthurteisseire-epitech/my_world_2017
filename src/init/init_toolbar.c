@@ -10,20 +10,9 @@
 #include "toolbar.h"
 #include "init.h"
 
-int init_toolbar(world_t *wd)
+void set_tools(toolbar_t *toolbar)
 {
-	wd->toolbar = malloc(sizeof(toolbar_t));
-	if (wd->toolbar == NULL)
-		return (-1);
-	wd->toolbar->pos.x = 20;
-	wd->toolbar->pos.y = 20;
-	wd->toolbar->offset.x = 15;
-	wd->toolbar->offset.y = 15;
-	wd->toolbar->tool = malloc(sizeof(tool_t) * NB_TOOLS);
-	if (wd->toolbar->tool == NULL)
-		return (-1);
-	init_tools(wd->toolbar);
-	return (0);
+	toolbar->tile_mode = 1;
 }
 
 int init_tools(toolbar_t *toolbar)
@@ -48,6 +37,23 @@ int init_tools(toolbar_t *toolbar)
 		}
 		set_rectangle(tool);
 	}
+	return (0);
+}
+
+int init_toolbar(world_t *wd)
+{
+	wd->toolbar = malloc(sizeof(toolbar_t));
+	if (wd->toolbar == NULL)
+		return (-1);
+	wd->toolbar->pos.x = 20;
+	wd->toolbar->pos.y = 20;
+	wd->toolbar->offset.x = 15;
+	wd->toolbar->offset.y = 15;
+	wd->toolbar->tool = malloc(sizeof(tool_t) * NB_TOOLS);
+	if (wd->toolbar->tool == NULL)
+		return (-1);
+	init_tools(wd->toolbar);
+	set_tools(wd->toolbar);
 	return (0);
 }
 

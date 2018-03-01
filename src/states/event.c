@@ -27,7 +27,7 @@ int event(world_t *wd)
 			sfRenderWindow_close(wd->window);
 		if (wd->event.type == sfEvtMouseButtonPressed)
 			if (wd->event.mouseButton.button == sfMouseLeft)
-				check_map_2d(wd->map, get_mouse_pos(wd->event));
+				check_map_2d(wd, get_mouse_pos(wd->event));
 		move_offset_map(wd);
 		scale_map(wd);
 	}

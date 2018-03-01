@@ -20,6 +20,7 @@ typedef struct toolbar {
 	sfVector2f pos;
 	sfVector2f offset;
 	tool_t *tool;
+	char tile_mode;
 } toolbar_t;
 
 #endif

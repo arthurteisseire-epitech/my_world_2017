@@ -25,23 +25,26 @@ int set_map_2d(world_t *wd, int **map_3d)
 
 int set_tiles_from_2d(map_t *map)
 {
-	for (int y = 0; y < NB_ROW - 1; y++)
-		for (int x = 0; x < NB_COL - 1; x++)
-			set_shape(map, x, y);
+	for (int row = 0; row < NB_ROW - 1; row++)
+		for (int col = 0; col < NB_COL - 1; col++)
+			set_shape(map, row, col);
 	return (0);
 }
 
-int set_shape(map_t *map, int x, int y)
+int set_shape(map_t *map, int row, int col)
 {
 	sfVector2f square_pos[4] = {
-		map->map_2d[y][x],
-		map->map_2d[y][x + 1],
-		map->map_2d[y + 1][x + 1],
-		map->map_2d[y + 1][x],
+		map->map_2d[row][col],
+		map->map_2d[row][col + 1],
+		map->map_2d[row + 1][col + 1],
+		map->map_2d[row + 1][col],
 	};
 
 	for (int i = 0; i < 4; i++)
-		sfConvexShape_setPoint(map->tiles[x][y].shape, i, square_pos[i]);
+		sfConvexShape_setPoint(
+			map->tiles[row][col].shape,
+			i,
+			square_pos[i]);
 	return (0);
 }
 

@@ -32,6 +32,6 @@ int display_shape(world_t *wd, int x, int y);
 int set_tiles_from_2d(map_t *map);
 int set_map_2d(world_t *wd, int **map_3d);
 int draw_map(world_t const *wd);
-int set_shape(map_t *map, int x, int y);
+int set_shape(map_t *map, int row, int col);
 
 #endif

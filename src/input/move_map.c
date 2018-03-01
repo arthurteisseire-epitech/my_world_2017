@@ -34,6 +34,7 @@ int scale_map(world_t *wd)
 	if (wd->event.type == sfEvtMouseWheelScrolled) {
 		wd->cam->scale.x += wd->event.mouseWheelScroll.delta * 3;
 		wd->cam->scale.y += wd->event.mouseWheelScroll.delta * 3;
+		wd->cam->scale.z += wd->event.mouseWheelScroll.delta * 0.3;
 	}
 	return (0);
 }

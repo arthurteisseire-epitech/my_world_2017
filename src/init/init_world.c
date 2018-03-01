@@ -33,7 +33,7 @@ int init_camera(world_t *wd)
 		return (-1);
 	wd->cam->scale.x = 200;
 	wd->cam->scale.y = 200;
-	wd->cam->scale.z = 200;
+	wd->cam->scale.z = 20;
 	wd->cam->offset.x = WIDTH / 2;
 	wd->cam->offset.y = -HEIGHT / 2;
 	wd->cam->angle.x = 45;

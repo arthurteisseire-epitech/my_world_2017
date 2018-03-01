@@ -10,6 +10,6 @@
 
 int move_offset_map(world_t *wd);
 int scale_map(world_t *wd);
-int check_map_2d(world_t *wd, sfVector2i mousepos);
+int check_map_2d(map_t *map, sfVector2i pos);
 
 #endif

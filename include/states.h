@@ -11,6 +11,7 @@
 int draw(world_t *wd);
 int event(world_t *wd);
 int update(world_t *wd);
+int states(world_t *wd);
 
 int toolbar_disp(world_t *wd);
 

@@ -13,20 +13,11 @@
 int run(void)
 {
 	world_t wd;
-	int status;
 
 	if (init_world(&wd) == -1)
 		return (-1);
 	while (sfRenderWindow_isOpen(wd.window)) {
-		status = event(&wd);
-		if (status == -1)
-			return (-1);
-		if (status != 1)
-			status = update(&wd);
-		if (status == -1)
-			return (-1);
-		status = draw(&wd);
-		if (status == -1)
+		if (states(&wd) == -1)
 			return (-1);
 	}
 	if (destroy(&wd) == -1)

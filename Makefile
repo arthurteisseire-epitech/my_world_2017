@@ -34,6 +34,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \
+		$(DSTATE)states.c \
 		$(DESTROY)destroy.c \
 		$(DESTROY)free_tiles.c
 OBJ	=	$(SRC:.c=.o)

@@ -26,8 +26,6 @@ int event(world_t *wd)
 			sfRenderWindow_close(wd->window);
 		if (sfKeyboard_isKeyPressed(sfKeyEscape))
 			sfRenderWindow_close(wd->window);
-		if (sfKeyboard_isKeyPressed(sfKeyT))
-			wd->toolbar->tile_mode = !wd->toolbar->tile_mode;
 		if (wd->event.type == sfEvtMouseButtonPressed) {
 			if (wd->event.mouseButton.button == sfMouseLeft)
 				wd->toolbar->increasing = 1;

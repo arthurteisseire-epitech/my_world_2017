@@ -10,7 +10,7 @@
 #include "toolbar.h"
 #include "init.h"
 
-int set_tools(world_t *wd)
+int init_toolbar(world_t *wd)
 {
 	wd->toolbar = malloc(sizeof(toolbar_t));
 	if (wd->toolbar == NULL)
@@ -19,15 +19,26 @@ int set_tools(world_t *wd)
 	wd->toolbar->pos.y = 20;
 	wd->toolbar->offset.x = 15;
 	wd->toolbar->offset.y = 15;
+	wd->toolbar->raise_mode = 1;
+	wd->toolbar->increasing = 1;
+	wd->toolbar->radius = 3;
+	wd->toolbar->force = 1;
 	wd->toolbar->tool = malloc(sizeof(tool_t) * NB_TOOLS);
 	if (wd->toolbar->tool == NULL)
 		return (-1);
 	init_tools(wd->toolbar);
 	set_tool_image(wd);
-	wd->toolbar->tile_mode = 1;
-	wd->toolbar->increasing = 1;
-	wd->toolbar->radius = 3;
-	wd->toolbar->force = 1;
+	set_tool_call(wd->toolbar);
+	return (0);
+}
+
+int set_rectangle(tool_t *tool)
+{
+	sfRectangleShape_setSize(tool->rect, tool->size);
+	sfRectangleShape_setPosition(tool->rect, tool->pos);
+	sfRectangleShape_setFillColor(tool->rect, sfRed);
+	sfRectangleShape_setOutlineThickness(tool->rect, 2.0);
+	sfRectangleShape_setOutlineColor(tool->rect, sfRed);
 	return (0);
 }
 
@@ -53,39 +64,5 @@ int init_tools(toolbar_t *toolbar)
 		}
 		set_rectangle(tool);
 	}
-	return (0);
-}
-
-int set_tool_image(world_t *wd)
-{
-	sfRectangleShape_setTexture(wd->toolbar->tool[0].rect, wd->textures[0], sfTrue);
-	sfRectangleShape_setTexture(wd->toolbar->tool[1].rect, wd->textures[1], sfTrue);
-	return (0);
-}
-
-int init_toolbar(world_t *wd)
-{
-	wd->toolbar = malloc(sizeof(toolbar_t));
-	if (wd->toolbar == NULL)
-		return (-1);
-	wd->toolbar->pos.x = 20;
-	wd->toolbar->pos.y = 20;
-	wd->toolbar->offset.x = 15;
-	wd->toolbar->offset.y = 15;
-	wd->toolbar->tool = malloc(sizeof(tool_t) * NB_TOOLS);
-	if (wd->toolbar->tool == NULL)
-		return (-1);
-	init_tools(wd->toolbar);
-	set_tools(wd);
-	return (0);
-}
-
-int set_rectangle(tool_t *tool)
-{
-	sfRectangleShape_setSize(tool->rect, tool->size);
-	sfRectangleShape_setPosition(tool->rect, tool->pos);
-	sfRectangleShape_setFillColor(tool->rect, sfRed);
-	sfRectangleShape_setOutlineThickness(tool->rect, 2.0);
-	sfRectangleShape_setOutlineColor(tool->rect, sfRed);
 	return (0);
 }

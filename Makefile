@@ -12,18 +12,22 @@ DSTATE	=	$(DSRC)states/
 DMAP	=	$(DSRC)map/
 DESTROY	=	$(DSRC)destroy/
 DINPUT	=	$(DSRC)input/
+DTOOL	=	$(DSRC)toolbar/
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
 		$(DMAP)iso.c \
 		$(DMAP)set_map.c \
 		$(DMAP)draw_map.c \
 		$(DMAP)tile.c \
+		$(DTOOL)tool_call.c \
+		$(DTOOL)update_tools.c \
 		$(DINIT)init_world.c \
 		$(DINIT)init_toolbar.c \
 		$(DINIT)init_map.c \
 		$(DINIT)init_tiles.c \
 		$(DINIT)init_camera.c \
 		$(DINIT)init_textures.c \
+		$(DINIT)init_tools.c \
 		$(DINPUT)move_map.c \
 		$(DINPUT)click.c \
 		$(DINPUT)raise_points.c \

@@ -7,7 +7,6 @@
 
 #include "my_world.h"
 #include "map.h"
-#include <stdio.h>
 
 sfVector2i get_sqr(world_t *wd, sfVector2i pt, char c)
 {
@@ -35,8 +34,7 @@ int is_det_pos(sfVector2i d, sfVector2i t)
 
 	if (det >= 0) {
 		return (1);
-	}
-	else {
+	} else {
 		return (-1);
 	}
 }

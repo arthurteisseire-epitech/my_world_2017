@@ -9,8 +9,6 @@
 #include "toolbar.h"
 #include "map.h"
 
-#define ABS(x) ((x) < 0 ? -(x) : (x))
-
 void raise_tile(world_t *wd, sfVector2i pt)
 {
 	int raise = wd->toolbar->increasing ? -1 : 1;
@@ -41,7 +39,7 @@ void raise(world_t *wd, sfVector2i pt)
 	sfVector2i expand_tile;
 
 	expand_tile.x = NB_ROW - 1;
-	if (wd->toolbar->tile_mode == 1) {
+	if (wd->toolbar->raise_mode == 1) {
 		while (expand_tile.x > 0) {
 			raise_radius(wd, pt, expand_tile);
 			expand_tile.x--;
@@ -49,4 +47,3 @@ void raise(world_t *wd, sfVector2i pt)
 	} else 
 		wd->map->map_3d[pt.x][pt.y] += wd->toolbar->increasing ? -1 : 1;
 }
-

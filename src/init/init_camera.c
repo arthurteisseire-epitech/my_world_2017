@@ -14,9 +14,9 @@ int init_camera(world_t *wd)
 	wd->cam = malloc(sizeof(camera_t));
 	if (wd->cam == NULL)
 		return (-1);
-	wd->cam->scale.x = 200;
-	wd->cam->scale.y = 200;
-	wd->cam->scale.z = 20;
+	wd->cam->scale.x = 100;
+	wd->cam->scale.y = 100;
+	wd->cam->scale.z = 10;
 	wd->cam->offset.x = WIDTH / 2;
 	wd->cam->offset.y = -HEIGHT / 2;
 	wd->cam->angle.x = 45;

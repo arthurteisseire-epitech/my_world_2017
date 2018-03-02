@@ -11,5 +11,6 @@
 int move_offset_map(world_t *wd);
 int scale_map(world_t *wd);
 int check_map_2d(world_t *wd, sfVector2i pos);
+int incline_map(world_t *wd);
 
 #endif

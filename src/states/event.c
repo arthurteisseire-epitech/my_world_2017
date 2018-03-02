@@ -43,6 +43,7 @@ int event(world_t *wd)
 		handle_click(wd);
 		move_offset_map(wd);
 		scale_map(wd);
+		incline_map(wd);
 	}
 	return (0);
 }

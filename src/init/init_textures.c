@@ -16,5 +16,8 @@ int init_textures(world_t *wd)
 	wd->textures[0] = sfTexture_createFromFile("assets/bsd.png", NULL);
 	if (wd->textures[0] == NULL)
 		return (-1);
+	wd->textures[1] = sfTexture_createFromFile("assets/corner.png", NULL);
+	if (wd->textures[1] == NULL)
+		return (-1);
 	return (0);
 }

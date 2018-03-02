@@ -23,6 +23,7 @@ int init_toolbar(world_t *wd)
 	if (wd->toolbar->tool == NULL)
 		return (-1);
 	init_tools(wd->toolbar);
+	set_tool_image(wd);
 	return (0);
 }
 
@@ -48,6 +49,13 @@ int init_tools(toolbar_t *toolbar)
 		}
 		set_rectangle(tool);
 	}
+	return (0);
+}
+
+int set_tool_image(world_t *wd)
+{
+	sfRectangleShape_setTexture(wd->toolbar->tool[0].rect, wd->textures[0], sfTrue);
+	sfRectangleShape_setTexture(wd->toolbar->tool[1].rect, wd->textures[1], sfTrue);
 	return (0);
 }
 

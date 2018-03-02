@@ -22,6 +22,8 @@ typedef struct toolbar {
 	tool_t *tool;
 	char tile_mode;
 	char increasing;
+	int radius;
+	int force;
 } toolbar_t;
 
 #endif

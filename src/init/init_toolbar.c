@@ -14,6 +14,8 @@ void set_tools(toolbar_t *toolbar)
 {
 	toolbar->tile_mode = 1;
 	toolbar->increasing = 1;
+	toolbar->radius = 3;
+	toolbar->force = 1;
 }
 
 int init_tools(toolbar_t *toolbar)

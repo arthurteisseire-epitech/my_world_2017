@@ -26,6 +26,7 @@ SRC	=	$(DSRC)main.c \
 		$(DINIT)init_textures.c \
 		$(DINPUT)move_map.c \
 		$(DINPUT)click.c \
+		$(DINPUT)raise_points.c \
 		$(DSTATE)event.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \

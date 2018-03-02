@@ -13,21 +13,6 @@
 
 #define RADIUS 15
 
-void raise(world_t *wd, sfVector2i pt)
-{
-	int raise = wd->toolbar->increasing ? -1 : 1;
-
-	wd->map->map_3d[pt.x][pt.y] += raise;
-	if (wd->toolbar->tile_mode == 1) {
-		if (pt.y + 1 < NB_ROW)
-		wd->map->map_3d[pt.x][pt.y + 1] += raise;
-		if (pt.x + 1 < NB_COL)
-		wd->map->map_3d[pt.x + 1][pt.y] += raise;
-		if (pt.x + 1 < NB_COL && pt.y + 1 < NB_COL)
-		wd->map->map_3d[pt.x + 1][pt.y + 1] += raise;
-	}
-}
-
 int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 {
 	int map_x = wd->map->map_2d[pt.x][pt.y].x;

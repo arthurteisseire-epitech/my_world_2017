@@ -2,31 +2,25 @@
 ** EPITECH PROJECT, 2017
 ** File Name : raise_points.c
 ** File description:
-** by Arthur Teisseire
+** by ozz
 */
 
 #include "my_world.h"
+#include "toolbar.h"
+#include "map.h"
 
-int click(world_t *wd)
+void raise(world_t *wd, sfVector2i pt)
 {
-	if (wd->event.type == sfEvtMouseButtonPressed) {
-		if (wd->event.mouseButton.button == sfMouseLeft)
-			raise_point(wd);
-	}
-	return (0);
-}
+	int raise = wd->toolbar->increasing ? -1 : 1;
 
-int raise_point(world_t *wd)
-{
-	for (int col = 0; col < NB_COL; col++) {
-		check_row(wd, col);
-	}
-	return (0);
-}
-
-int check_row(world_t *wd, int col)
-{
-	for (int row = 0; row < NB_ROW; row++) {
-		if (wd->map_2d[row][col] == wd->event.mouseButton.x)
+	wd->map->map_3d[pt.x][pt.y] += raise;
+	if (wd->toolbar->tile_mode == 1) {
+		if (pt.y + 1 < NB_ROW)
+			wd->map->map_3d[pt.x][pt.y + 1] += raise;
+		if (pt.x + 1 < NB_COL)
+			wd->map->map_3d[pt.x + 1][pt.y] += raise;
+		if (pt.x + 1 < NB_COL && pt.y + 1 < NB_COL)
+			wd->map->map_3d[pt.x + 1][pt.y + 1] += raise;
 	}
 }
+

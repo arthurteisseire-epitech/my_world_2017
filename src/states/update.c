@@ -12,7 +12,8 @@
 
 int update(world_t *wd)
 {
-	update_tools(wd);
+	if (update_tools(wd) == 0)
+		return (0);
 	set_map_2d(wd, wd->map->map_3d);
 	set_tiles_from_2d(wd->map);
 	return (0);

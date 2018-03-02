@@ -30,9 +30,9 @@ typedef struct toolbar {
 	int force;
 } toolbar_t;
 
-int is_tool_clicked(sfEvent *event, tool_t *tool);
 int toggle_raise_mode(toolbar_t *toolbar);
 int update_tools(world_t *wd);
+int is_tool_clicked(world_t *wd, tool_t *tool);
 void set_tool_call(toolbar_t *toolbar);
 
 #endif

@@ -17,6 +17,7 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)iso.c \
 		$(DMAP)set_map.c \
 		$(DMAP)draw_map.c \
+		$(DMAP)tile.c \
 		$(DINIT)init_world.c \
 		$(DINIT)init_toolbar.c \
 		$(DINIT)init_map.c \

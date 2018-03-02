@@ -9,52 +9,49 @@
 #include "input.h"
 #include "camera.h"
 #include "map.h"
+#include "toolbar.h"
 
 #define RADIUS 15
-/*
-int is_mouse_in_tile(map_t *map, sfVector2i pos)
-{
-	return (0);
-}
-*/
-void raise(map_t *map, sfVector2i pt, int nb_pt)
-{
-	//printf("RAISE X:%d Y:%d\n", x, y);
-	/* for (int i = 0; i < nb_pt; i++) {
-	   map->map_3d[pts[i].x][pts[i].y]--;
-	   }
-	   */
-	(void)nb_pt;
-	map->map_3d[pt.x][pt.y]--;
-}
 
-void detect_point(map_t *map, sfVector2i pt, sfVector2i pos)
+int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 {
-	int map_x = map->map_2d[pt.x][pt.y].x;
-	int map_y = map->map_2d[pt.x][pt.y].y;
+	int map_x = wd->map->map_2d[pt.x][pt.y].x;
+	int map_y = wd->map->map_2d[pt.x][pt.y].y;
 	int mouse_x = pos.x;
 	int mouse_y = pos.y;
 
-	//printf("MOUSE X:%d Y:%d\n", pos.x, pos.y);
-	//printf("MAP X:%d Y:%d\n", map_x, map_y);
 	if (map_x - RADIUS < mouse_x && mouse_x < map_x + RADIUS) {
 		if (map_y - RADIUS < mouse_y && mouse_y < map_y + RADIUS) {
-			raise(map, pt, 1);
+			raise(wd, pt);
+			return (1);
 		}
 	}
+	return (0);
 }
 
-int check_map_2d(map_t *map, sfVector2i pos)
+int detect_tile(world_t *wd, sfVector2i pt, sfVector2i pos)
+{
+	if (tile_collide(wd, pt, pos)) {
+		raise(wd, pt);
+		return (1);
+	}
+	return (0);
+}
+
+int check_map_2d(world_t *wd, sfVector2i pos)
 {
 	sfVector2i pt;
-	pt.x = NB_COL;
+	pt.x = NB_ROW - (int)wd->toolbar->tile_mode;
+	int (*collide)(world_t *, sfVector2i, sfVector2i);
 
+	collide = wd->toolbar->tile_mode ? &detect_tile : &detect_point;
 	while (pt.x > 0) {
 		pt.x--;
-		pt.y = NB_ROW;
+		pt.y = NB_COL - (int)wd->toolbar->tile_mode;
 		while (pt.y > 0) {
 			pt.y--;
-			detect_point(map, pt, pos);
+			if (collide(wd, pt, pos))
+				return (1);
 		}
 	}
 	return (0);

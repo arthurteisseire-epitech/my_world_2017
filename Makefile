@@ -18,6 +18,7 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)iso.c \
 		$(DMAP)set_map.c \
 		$(DMAP)draw_map.c \
+		$(DMAP)shadow_tiles.c \
 		$(DMAP)tile.c \
 		$(DTOOL)tool_call.c \
 		$(DTOOL)update_tools.c \

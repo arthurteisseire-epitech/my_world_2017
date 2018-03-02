@@ -17,6 +17,10 @@ typedef struct tile {
 	sfVector2i left;
 	sfVector2i right;
 	sfVector2i bottom;
+	sfVector2f pos_top;
+	sfVector2f pos_left;
+	sfVector2f pos_right;
+	sfVector2f pos_bottom;
 } tile_t;
 
 typedef struct map {
@@ -36,5 +40,6 @@ int set_shape(map_t *map, int row, int col);
 sfVector2i get_sqr(world_t *wd, sfVector2i pt, char c);
 int tile_collide(world_t *wd, sfVector2i tile_index, sfVector2i pos);
 void raise(world_t *wd, sfVector2i pt);
+int update_shadow(map_t *map, int row, int col);
 
 #endif

@@ -25,9 +25,12 @@ int set_map_2d(world_t *wd, int **map_3d)
 
 int set_tiles_from_2d(map_t *map)
 {
-	for (int row = 0; row < NB_ROW - 1; row++)
-		for (int col = 0; col < NB_COL - 1; col++)
+	for (int row = 0; row < NB_ROW - 1; row++) {
+		for (int col = 0; col < NB_COL - 1; col++) {
 			set_shape(map, row, col);
+			update_shadow(map, row, col);
+		}
+	}
 	return (0);
 }
 
@@ -48,7 +51,7 @@ int set_shape(map_t *map, int row, int col)
 	return (0);
 }
 
-void set_vector(sfVector2i *vec, int x, int y)
+void set_vec2f(sfVector2f *vec, float x, float y)
 {
 	vec->x = x;
 	vec->y = y;

@@ -25,7 +25,7 @@ sfVector2i get_sqr(world_t *wd, sfVector2i pt, char c)
 		sqr.x = wd->map->map_2d[pt.x + 1][pt.y + 1].x;
 		sqr.y = wd->map->map_2d[pt.x + 1][pt.y + 1].y;
 	}
-		return (sqr);
+	return (sqr);
 }
 
 int is_det_pos(sfVector2i d, sfVector2i t)
@@ -53,10 +53,12 @@ int tile_collide(world_t *wd, sfVector2i tile_index, sfVector2i pos)
 	int point_inside = 0;
 	sfVector2i d;
 	sfVector2i t;
-	sfVector2i tile[4] = {get_sqr(wd, tile_index, 't') ,
-				get_sqr(wd, tile_index, 'r'),
-				get_sqr(wd, tile_index, 'b'),
-				get_sqr(wd, tile_index, 'l')};
+	sfVector2i tile[4] = {
+		get_sqr(wd, tile_index, 't'),
+		get_sqr(wd, tile_index, 'r'),
+		get_sqr(wd, tile_index, 'b'),
+		get_sqr(wd, tile_index, 'l')
+	};
 
 	for (int i = 0; i < 4; i++) {
 		t = get_vec(tile[i], pos);

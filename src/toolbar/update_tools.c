@@ -14,7 +14,8 @@ int is_tool_clicked(world_t *wd, tool_t *tool)
 	int right = tool->pos.x + tool->size.x;
 	int bottom = tool->pos.y + tool->size.y;
 
-	if ((mouse.x > tool->pos.x && mouse.x < right) &&
+	if (wd->event.type == sfEvtMouseButtonPressed && 
+		(mouse.x > tool->pos.x && mouse.x < right) &&
 		(mouse.y > tool->pos.y && mouse.y < bottom))
 		return (1);
 	return (0);

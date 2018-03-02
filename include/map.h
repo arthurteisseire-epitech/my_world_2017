@@ -31,7 +31,7 @@ int draw_shape(world_t *wd, sfVector2f *square_pos);
 int display_shape(world_t *wd, int x, int y);
 int set_tiles_from_2d(map_t *map);
 int set_map_2d(world_t *wd, int **map_3d);
-int draw_map(world_t const *wd);
+int draw_map(world_t const * const wd);
 int set_shape(map_t *map, int row, int col);
 sfVector2i get_sqr(world_t *wd, sfVector2i pt, char c);
 int tile_collide(world_t *wd, sfVector2i tile_index, sfVector2i pos);

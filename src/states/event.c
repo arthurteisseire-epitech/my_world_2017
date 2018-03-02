@@ -19,6 +19,18 @@ sfVector2i get_mouse_pos(sfEvent event)
 	return (pos);
 }
 
+static int handle_click(world_t *wd)
+{
+	if (wd->event.type == sfEvtMouseButtonPressed) {
+		if (wd->event.mouseButton.button == sfMouseLeft)
+			wd->toolbar->increasing = 1;
+		if (wd->event.mouseButton.button == sfMouseRight)
+			wd->toolbar->increasing = 0;
+		check_map_2d(wd, get_mouse_pos(wd->event));
+	}
+	return (0);
+}
+
 int event(world_t *wd)
 {
 	while (sfRenderWindow_pollEvent(wd->window, &wd->event)) {
@@ -26,13 +38,9 @@ int event(world_t *wd)
 			sfRenderWindow_close(wd->window);
 		if (sfKeyboard_isKeyPressed(sfKeyEscape))
 			sfRenderWindow_close(wd->window);
-		if (wd->event.type == sfEvtMouseButtonPressed) {
-			if (wd->event.mouseButton.button == sfMouseLeft)
-				wd->toolbar->increasing = 1;
-			if (wd->event.mouseButton.button == sfMouseRight)
-				wd->toolbar->increasing = 0;
-			check_map_2d(wd, get_mouse_pos(wd->event));
-		}
+		if (update_tools(wd) == 0)
+			return (1);
+		handle_click(wd);
 		move_offset_map(wd);
 		scale_map(wd);
 	}

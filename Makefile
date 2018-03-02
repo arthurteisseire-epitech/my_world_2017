@@ -13,6 +13,7 @@ DMAP	=	$(DSRC)map/
 DESTROY	=	$(DSRC)destroy/
 DINPUT	=	$(DSRC)input/
 DTOOL	=	$(DSRC)toolbar/
+
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
 		$(DMAP)iso.c \
@@ -20,6 +21,7 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)draw_map.c \
 		$(DMAP)shadow_tiles.c \
 		$(DMAP)tile.c \
+		$(DMAP)reset_map_3d.c \
 		$(DTOOL)tool_call.c \
 		$(DTOOL)update_tools.c \
 		$(DINIT)init_world.c \
@@ -38,6 +40,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)states.c \
 		$(DESTROY)destroy.c \
 		$(DESTROY)free_tiles.c
+
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
 DLIB	=	$(realpath lib)

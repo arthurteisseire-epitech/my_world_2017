@@ -41,5 +41,6 @@ sfVector2i get_sqr(world_t *wd, sfVector2i pt, char c);
 int tile_collide(world_t *wd, sfVector2i tile_index, sfVector2i pos);
 void raise(world_t *wd, sfVector2i pt);
 int update_shadow(map_t *map, int row, int col);
+int reset_map_3d(int **map_3d);
 
 #endif

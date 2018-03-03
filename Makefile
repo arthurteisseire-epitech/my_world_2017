@@ -17,6 +17,7 @@ DTEXT	=	$(DSRC)text/
 
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
+		$(DSRC)check_env.c \
 		$(DMAP)iso.c \
 		$(DMAP)set_map.c \
 		$(DMAP)draw_map.c \
@@ -42,6 +43,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)states.c \
 		$(DTEXT)disp_stats.c \
 		$(DESTROY)destroy.c \
+		$(DESTROY)free_stats.c \
 		$(DESTROY)free_tiles.c
 
 OBJ	=	$(SRC:.c=.o)

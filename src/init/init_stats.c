@@ -16,7 +16,7 @@ int init_stats(world_t *wd)
 	if (wd->stats == NULL)
 		return (-1);
 	wd->stats->text = malloc(sizeof(text_t));
-	if (wd->stats->text->text == NULL)
+	if (wd->stats->text == NULL)
 		return (-1);
 	wd->stats->text->text = sfText_create();
 	if (wd->stats->text->text == NULL)

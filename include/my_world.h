@@ -35,5 +35,8 @@ typedef struct world {
 } world_t;
 
 int run(void);
+int check_env(char **env);
+int check_env_var(char *env_var);
+int len_tokens(char **tokens);
 
 #endif

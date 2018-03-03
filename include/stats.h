@@ -18,6 +18,6 @@ typedef struct stats {
 	text_t *text;
 } stats_t;
 
-void stats_to_str(world_t *wd);
+int stats_to_str(world_t *wd);
 
 #endif

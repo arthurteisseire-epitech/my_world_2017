@@ -13,6 +13,7 @@ DMAP	=	$(DSRC)map/
 DESTROY	=	$(DSRC)destroy/
 DINPUT	=	$(DSRC)input/
 DTOOL	=	$(DSRC)toolbar/
+DTEXT	=	$(DSRC)text/
 
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
@@ -38,6 +39,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \
 		$(DSTATE)states.c \
+		$(DTEXT)disp_stats.c \
 		$(DESTROY)destroy.c \
 		$(DESTROY)free_tiles.c
 

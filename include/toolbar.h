@@ -25,8 +25,8 @@ typedef struct toolbar {
 	sfVector2f pos;
 	sfVector2f offset;
 	tool_t *tool;
-	char raise_mode;
-	char increasing;
+	int raise_mode;
+	int increasing;
 	int radius;
 	int force;
 } toolbar_t;

@@ -13,6 +13,7 @@ SRC	=	$(DSRC)my_putchar.c \
 		$(DSRC)my_strncpy.c \
 		$(DSRC)skip_first_flags.c \
 		$(DSRC)split.c \
+		$(DSRC)get_next_line.c \
 		$(DSRC)my_itoa.c
 OBJ	=	$(SRC:.c=.o)
 NAME	=	libmy.a
@@ -30,4 +31,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re:	fclean all
-	make clean

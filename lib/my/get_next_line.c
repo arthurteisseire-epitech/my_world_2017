@@ -6,7 +6,8 @@
 */
 
 #include <stdlib.h>
-#include "get_next_line.h"
+#include <unistd.h>
+#include "my.h"
 
 char *get_next_line(int fd)
 {
@@ -80,15 +81,4 @@ int find_backspace(char *str)
 		i++;
 	}
 	return (-1);
-}
-
-int my_strlen(char *str)
-{
-	int i = 0;
-
-	if (str == NULL)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }

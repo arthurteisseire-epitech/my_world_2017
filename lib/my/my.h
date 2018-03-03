@@ -33,6 +33,6 @@ int find_backspace(char *str);
 char *cut_line(char **begin, char *line, int size);
 int nb_len(int nb);
 int my_pow(int nb, int power);
-char *itoa(int nb);
+char *my_itoa(int nb);
 
 #endif

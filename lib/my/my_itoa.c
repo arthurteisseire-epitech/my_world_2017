@@ -31,7 +31,7 @@ int my_pow(int nb, int power)
 	return (res);
 }
 
-char *itoa(int nb)
+char *my_itoa(int nb)
 {
 	int len = nb_len(nb);
 	char *res = malloc(sizeof(char) * (len + 1));

@@ -8,10 +8,11 @@
 #include "my_world.h"
 #include "states.h"
 
-int states(world_t *wd)
+int states(world_t *wd, sfTime *time)
 {
 	int status;
 
+	sfSleep(*time);
 	status = event(wd);
 	if (status == -1)
 		return (-1);

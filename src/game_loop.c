@@ -13,11 +13,12 @@
 int run(void)
 {
 	world_t wd;
+	sfTime time = {500};
 
 	if (init_world(&wd) == -1)
 		return (-1);
 	while (sfRenderWindow_isOpen(wd.window)) {
-		if (states(&wd) == -1)
+		if (states(&wd, &time) == -1)
 			return (-1);
 	}
 	if (destroy(&wd) == -1)

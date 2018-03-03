@@ -5,6 +5,7 @@
 ** By Arthur Teisseire
 */
 
+#include <unistd.h>
 #include "my.h"
 
 void my_putstr(char *str)

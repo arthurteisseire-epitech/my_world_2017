@@ -12,7 +12,8 @@ SRC	=	$(DSRC)my_putchar.c \
 		$(DSRC)len_first_word.c \
 		$(DSRC)my_strncpy.c \
 		$(DSRC)skip_first_flags.c \
-		$(DSRC)split.c
+		$(DSRC)split.c \
+		$(DSRC)my_itoa.c
 OBJ	=	$(SRC:.c=.o)
 NAME	=	libmy.a
 

@@ -11,8 +11,6 @@
 #include "map.h"
 #include "toolbar.h"
 
-#define RADIUS 15
-
 int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 {
 	int map_x = wd->map->map_2d[pt.x][pt.y].x;
@@ -20,8 +18,8 @@ int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 	int mouse_x = pos.x;
 	int mouse_y = pos.y;
 
-	if (map_x - RADIUS < mouse_x && mouse_x < map_x + RADIUS) {
-		if (map_y - RADIUS < mouse_y && mouse_y < map_y + RADIUS) {
+	if (map_x - HIT_BOX < mouse_x && mouse_x < map_x + HIT_BOX) {
+		if (map_y - HIT_BOX < mouse_y && mouse_y < map_y + HIT_BOX) {
 			raise(wd, pt);
 			return (1);
 		}

@@ -8,6 +8,8 @@
 #ifndef MAP_2D_H
 #define MAP_2D_H
 
+#define HIT_BOX 15
+
 typedef struct camera camera_t;
 typedef struct world world_t;
 

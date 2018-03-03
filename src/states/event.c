@@ -19,12 +19,12 @@ static void handle_exit(world_t *wd)
 		sfRenderWindow_close(wd->window);
 }
 
-sfVector2i get_mouse_pos(sfEvent event)
+sfVector2i get_mouse_pos(sfEvent *event)
 {
 	sfVector2i pos;
 
-	pos.x = event.mouseButton.x;
-	pos.y = event.mouseButton.y;
+	pos.x = event->mouseButton.x;
+	pos.y = event->mouseButton.y;
 	return (pos);
 }
 
@@ -35,7 +35,7 @@ static void handle_click(world_t *wd)
 			wd->toolbar->increasing = 1;
 		if (wd->event.mouseButton.button == sfMouseRight)
 			wd->toolbar->increasing = 0;
-		check_map_2d(wd, get_mouse_pos(wd->event));
+		check_map_2d(wd, get_mouse_pos(&wd->event));
 	}
 }
 

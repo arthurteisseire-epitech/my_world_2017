@@ -21,7 +21,7 @@ int init_toolbar(world_t *wd)
 	wd->toolbar->offset.y = 15;
 	wd->toolbar->raise_mode = 1;
 	wd->toolbar->increasing = 1;
-	wd->toolbar->radius = 3;
+	wd->toolbar->radius = 1;
 	wd->toolbar->force = 1;
 	wd->toolbar->tool = malloc(sizeof(tool_t) * NB_TOOLS);
 	if (wd->toolbar->tool == NULL)

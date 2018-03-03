@@ -28,7 +28,7 @@ void raise_radius(world_t *wd, sfVector2i pt, sfVector2i exp_tl)
 {
 	exp_tl.y = NB_ROW - 1;
 	while (exp_tl.y > 0) {
-		if ( ABS(exp_tl.x - pt.x) + ABS(exp_tl.y - pt.y) < wd->toolbar->radius)
+		if (ABS(exp_tl.x - pt.x) + ABS(exp_tl.y - pt.y) < wd->toolbar->radius)
 			raise_tile(wd, exp_tl);
 		exp_tl.y--;
 	}

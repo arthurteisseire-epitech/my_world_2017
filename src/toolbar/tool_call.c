@@ -26,6 +26,7 @@ int toggle_grid(world_t *wd)
 		for (int col = 0; col < NB_ROW; col++) {
 			tile = &wd->map->tiles[row][col];
 			tile->outline = outline;
+			sfConvexShape_setOutlineThickness(tile->shape, tile->outline);
 		}
 	}
 	return (0);

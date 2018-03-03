@@ -1,4 +1,4 @@
-DSRC	=	$(realpath .)/
+DSRC	=	./
 SRC	=	$(DSRC)my_putchar.c \
 		$(DSRC)my_putstr.c \
 		$(DSRC)my_puterror.c \

@@ -10,8 +10,8 @@
 
 int draw_map(world_t const * const wd)
 {
-	for (int row = 0; row < NB_ROW - 1; row++)
-		for (int col = 0; col < NB_COL - 1; col++)
+	for (int row = 0; row < NB_ROW; row++)
+		for (int col = 0; col < NB_COL; col++)
 			sfRenderWindow_drawConvexShape(wd->window,
 			wd->map->tiles[row][col].shape,
 			NULL);

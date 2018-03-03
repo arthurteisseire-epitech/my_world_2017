@@ -9,30 +9,29 @@
 #include "map.h"
 #include "camera.h"
 
-int set_map_2d(world_t *wd, int **map_3d)
+int set_map(world_t *wd, int **map_3d)
 {
-	for (int y = 0; y < NB_ROW; y++) {
-		for (int x = 0; x < NB_COL; x++) {
-			wd->map->map_2d[y][x] = project_iso_point(
+	for (int row = 0; row < NB_ROW; row++) {
+		for (int col = 0; col < NB_COL; col++) {
+			wd->map->map_2d[row][col] = project_iso_point(
 			wd->cam,
-			x * wd->cam->scale.x + wd->cam->offset.x, 
-			y * wd->cam->scale.y + wd->cam->offset.y, 
-			map_3d[y][x] * wd->cam->scale.z);
+			col * wd->cam->scale.x + wd->cam->offset.x, 
+			row * wd->cam->scale.y + wd->cam->offset.y, 
+			map_3d[row][col] * wd->cam->scale.z);
+			set_tile(wd, row, col);
 		}
 	}
 	return (0);
 }
 
-int set_tiles_from_2d(world_t *wd)
+void set_tile(world_t *wd, int row, int col)
 {
-	for (int row = 0; row < NB_ROW - 1; row++) {
-		for (int col = 0; col < NB_COL - 1; col++) {
-			set_shape(wd->map, row, col);
-			update_shadow(wd->map, row, col);
-			set_tile_shape(wd, &wd->map->tiles[row][col]);
-		}
+	row--;
+	col--;
+	if (row >= 0 && col >= 0) {
+		set_shape(wd->map, row, col);
+		update_shadow(wd->map, row, col);
 	}
-	return (0);
 }
 
 int set_shape(map_t *map, int row, int col)

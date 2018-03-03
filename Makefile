@@ -6,7 +6,7 @@
 ##
 
 CC	=	gcc
-DSRC	=	$(realpath ./src)/
+DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATE	=	$(DSRC)states/
 DMAP	=	$(DSRC)map/
@@ -42,13 +42,13 @@ SRC	=	$(DSRC)main.c \
 		$(DESTROY)free_tiles.c
 
 OBJ	=	$(SRC:.c=.o)
-INC	=	$(realpath ./include)/
-DLIB	=	$(realpath lib/my)
+INC	=	include/
+DLIB	=	lib/my/
 LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 NAME	=	my_world
 LDFLAGS	=	-lc_graph_prog -lm
-CFLAGS	+=	-Wall -W -Wextra -I $(INC) -g
+CFLAGS	+=	-Wall -W -Wextra -I $(INC)
 
 all: $(NAME)
 

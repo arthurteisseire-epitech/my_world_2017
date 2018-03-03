@@ -13,8 +13,8 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 #define TITLE "my_world"
-#define NB_COL 20
-#define NB_ROW 20
+#define NB_COL 26
+#define NB_ROW 26
 #define NB_TEXTURE 5
 
 typedef struct camera camera_t;

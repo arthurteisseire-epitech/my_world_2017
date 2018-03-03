@@ -11,8 +11,6 @@
 typedef struct camera camera_t;
 typedef struct world world_t;
 
-#define TOOL_SIZE 80
-
 typedef struct tile {
 	sfConvexShape *shape;
 	sfVector2i top;

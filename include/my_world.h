@@ -15,7 +15,7 @@
 #define TITLE "my_world"
 #define NB_COL 20
 #define NB_ROW 20
-#define NB_TEXTURE 2
+#define NB_TEXTURE 4
 
 typedef struct camera camera_t;
 typedef struct toolbar toolbar_t;

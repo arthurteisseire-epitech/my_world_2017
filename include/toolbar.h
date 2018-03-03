@@ -10,6 +10,7 @@
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 #define NB_TOOLS 4
+#define TOOL_SIZE 80
 
 typedef struct tool tool_t;
 

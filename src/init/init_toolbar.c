@@ -9,7 +9,6 @@
 #include "my_world.h"
 #include "toolbar.h"
 #include "init.h"
-#include "map.h"
 
 int init_toolbar(world_t *wd)
 {
@@ -35,10 +34,8 @@ int init_toolbar(world_t *wd)
 
 int set_rectangle(tool_t *tool)
 {
-	sfIntRect rect = {tool->pos.x, tool->pos.y, TOOL_SIZE, TOOL_SIZE};
 	sfColor color = {100, 100, 100, 255};
 
-	sfRectangleShape_setTextureRect(tool->rect, rect);
 	sfRectangleShape_setSize(tool->rect, tool->size);
 	sfRectangleShape_setPosition(tool->rect, tool->pos);
 	sfRectangleShape_setFillColor(tool->rect, color);

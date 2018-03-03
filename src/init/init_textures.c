@@ -19,5 +19,8 @@ int init_textures(world_t *wd)
 	wd->textures[1] = sfTexture_createFromFile("assets/grid.png", NULL);
 	if (wd->textures[1] == NULL)
 		return (-1);
+	wd->textures[2] = sfTexture_createFromFile("assets/raise.png", NULL);
+	if (wd->textures[2] == NULL)
+		return (-1);
 	return (0);
 }

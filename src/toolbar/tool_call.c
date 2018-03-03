@@ -30,3 +30,9 @@ int toggle_grid(world_t *wd)
 	}
 	return (0);
 }
+
+int increase_radius(world_t *wd)
+{
+	wd->toolbar->radius += 1;
+	return (0);
+}

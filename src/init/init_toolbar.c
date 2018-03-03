@@ -9,6 +9,7 @@
 #include "my_world.h"
 #include "toolbar.h"
 #include "init.h"
+#include "map.h"
 
 int init_toolbar(world_t *wd)
 {
@@ -34,11 +35,15 @@ int init_toolbar(world_t *wd)
 
 int set_rectangle(tool_t *tool)
 {
+	sfIntRect rect = {tool->pos.x, tool->pos.y, TOOL_SIZE, TOOL_SIZE};
+	sfColor color = {100, 100, 100, 255};
+
+	sfRectangleShape_setTextureRect(tool->rect, rect);
 	sfRectangleShape_setSize(tool->rect, tool->size);
 	sfRectangleShape_setPosition(tool->rect, tool->pos);
-	sfRectangleShape_setFillColor(tool->rect, sfRed);
+	sfRectangleShape_setFillColor(tool->rect, color);
 	sfRectangleShape_setOutlineThickness(tool->rect, 2.0);
-	sfRectangleShape_setOutlineColor(tool->rect, sfRed);
+	sfRectangleShape_setOutlineColor(tool->rect, sfWhite);
 	return (0);
 }
 
@@ -51,8 +56,8 @@ int init_tools(toolbar_t *toolbar)
 		tool->rect = sfRectangleShape_create();
 		if (tool->rect == NULL)
 			return (-1);
-		tool->size.x = 120;
-		tool->size.y = 120;
+		tool->size.x = TOOL_SIZE;
+		tool->size.y = TOOL_SIZE;
 		if (i == 0) {
 			tool->pos.x = toolbar->pos.x;
 			tool->pos.y = toolbar->pos.y;

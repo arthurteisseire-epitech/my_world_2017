@@ -36,3 +36,10 @@ int increase_radius(world_t *wd)
 	wd->toolbar->radius += 1;
 	return (0);
 }
+
+int decrease_radius(world_t *wd)
+{
+	if (wd->toolbar->radius > 1)
+		wd->toolbar->radius -= 1;
+	return (0);
+}

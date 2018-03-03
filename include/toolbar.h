@@ -9,7 +9,7 @@
 #define TOOLBAR_H
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
-#define NB_TOOLS 3
+#define NB_TOOLS 4
 
 typedef struct tool tool_t;
 
@@ -36,5 +36,6 @@ void set_tool_call(toolbar_t *toolbar);
 int toggle_grid(world_t *wd);
 int toggle_raise_mode(world_t *wd);
 int increase_radius(world_t *wd);
+int decrease_radius(world_t *wd);
 
 #endif

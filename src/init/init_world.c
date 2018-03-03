@@ -10,18 +10,18 @@
 #include "camera.h"
 #include "init.h"
 #include "map.h"
+#include "text.h"
 
 int init_world(world_t *wd)
 {
 	wd->window = create_window();
-	wd->stats = sfText_create();
 	if (wd->window == NULL ||
-	wd->stats == NULL ||
 	init_camera(wd) == -1 ||
 	init_map(wd) == -1 ||
 	init_textures(wd) == -1 ||
 	init_toolbar(wd) == -1 ||
-	init_tiles(wd) == -1)
+	init_tiles(wd) == -1 ||
+	init_stats(wd) == -1)
 		return (-1);
 	return (0);
 }

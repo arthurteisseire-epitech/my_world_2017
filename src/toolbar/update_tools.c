@@ -7,6 +7,7 @@
 
 #include "my_world.h"
 #include "toolbar.h"
+#include "stats.h"
 
 int is_tool_clicked(world_t *wd, tool_t *tool)
 {
@@ -29,6 +30,7 @@ int update_tools(world_t *wd)
 		tool = &wd->toolbar->tool[i];
 		if (is_tool_clicked(wd, tool)) {
 			tool->call(wd);
+			stats_to_str(wd);
 			return (0);
 		}
 	}

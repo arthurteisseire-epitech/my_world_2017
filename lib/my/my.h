@@ -34,5 +34,6 @@ char *cut_line(char **begin, char *line, int size);
 int nb_len(int nb);
 int my_pow(int nb, int power);
 char *my_itoa(int nb);
+char *my_strcat(char *dest, char const *src);
 
 #endif

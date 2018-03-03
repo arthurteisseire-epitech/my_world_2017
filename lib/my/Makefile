@@ -14,7 +14,8 @@ SRC	=	$(DSRC)my_putchar.c \
 		$(DSRC)skip_first_flags.c \
 		$(DSRC)split.c \
 		$(DSRC)get_next_line.c \
-		$(DSRC)my_itoa.c
+		$(DSRC)my_itoa.c \
+		$(DSRC)my_strcat.c
 OBJ	=	$(SRC:.c=.o)
 NAME	=	libmy.a
 

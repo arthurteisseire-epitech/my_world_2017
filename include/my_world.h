@@ -21,6 +21,8 @@ typedef struct camera camera_t;
 typedef struct toolbar toolbar_t;
 typedef struct map map_t;
 typedef struct clck clck_t;
+typedef struct text text_t;
+typedef struct stats stats_t;
 
 typedef struct world {
 	camera_t *cam;
@@ -29,7 +31,7 @@ typedef struct world {
 	sfTexture **textures;
 	toolbar_t *toolbar;
 	map_t *map;
-	sfText *stats;
+	stats_t *stats;
 } world_t;
 
 int run(void);

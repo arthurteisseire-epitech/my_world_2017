@@ -32,6 +32,7 @@ SRC	=	$(DSRC)main.c \
 		$(DINIT)init_camera.c \
 		$(DINIT)init_textures.c \
 		$(DINIT)init_tools.c \
+		$(DINIT)init_stats.c \
 		$(DINPUT)move_map.c \
 		$(DINPUT)click.c \
 		$(DINPUT)raise_points.c \
@@ -50,7 +51,7 @@ LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 NAME	=	my_world
 LDFLAGS	=	-lc_graph_prog -lm
-CFLAGS	+=	-Wall -W -Wextra -I $(INC)
+CFLAGS	+=	-Wall -W -Wextra -I $(INC) -g
 
 all: $(NAME)
 

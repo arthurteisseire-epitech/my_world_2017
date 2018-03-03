@@ -9,6 +9,7 @@
 #include "map.h"
 #include "destroy.h"
 #include "toolbar.h"
+#include "text.h"
 
 int update(world_t *wd)
 {

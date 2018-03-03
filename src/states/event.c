@@ -8,8 +8,9 @@
 #include "my_world.h"
 #include "camera.h"
 #include "input.h"
-#include "toolbar.h"
+#include "stats.h"
 #include "map.h"
+#include "toolbar.h"
 
 static void handle_exit(world_t *wd)
 {
@@ -32,9 +33,9 @@ static void handle_click(world_t *wd)
 {
 	if (wd->event.type == sfEvtMouseButtonPressed) {
 		if (wd->event.mouseButton.button == sfMouseLeft)
-			wd->toolbar->increasing = 1;
+			wd->stats->increasing = 1;
 		if (wd->event.mouseButton.button == sfMouseRight)
-			wd->toolbar->increasing = 0;
+			wd->stats->increasing = 0;
 		check_map_2d(wd, get_mouse_pos(&wd->event));
 	}
 }

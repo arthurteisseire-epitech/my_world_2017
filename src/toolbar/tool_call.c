@@ -8,10 +8,11 @@
 #include "my_world.h"
 #include "toolbar.h"
 #include "map.h"
+#include "stats.h"
 
 int toggle_raise_mode(world_t *wd)
 {
-	wd->toolbar->raise_mode = !wd->toolbar->raise_mode;
+	wd->stats->raise_mode = !wd->stats->raise_mode;
 	return (0);
 }
 
@@ -34,13 +35,13 @@ int toggle_grid(world_t *wd)
 
 int increase_radius(world_t *wd)
 {
-	wd->toolbar->radius += 1;
+	wd->stats->radius += 1;
 	return (0);
 }
 
 int decrease_radius(world_t *wd)
 {
-	if (wd->toolbar->radius > 1)
-		wd->toolbar->radius -= 1;
+	if (wd->stats->radius > 1)
+		wd->stats->radius -= 1;
 	return (0);
 }

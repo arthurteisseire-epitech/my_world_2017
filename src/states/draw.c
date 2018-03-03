@@ -10,12 +10,15 @@
 #include "map.h"
 #include "toolbar.h"
 #include "states.h"
+#include "stats.h"
+#include "text.h"
 
 int draw(world_t *wd)
 {
 	sfRenderWindow_clear(wd->window, sfBlack);
 	draw_map(wd);
 	toolbar_disp(wd);
+	sfRenderWindow_drawText(wd->window, wd->stats->text->text, NULL);
 	sfRenderWindow_display(wd->window);
 	return (0);
 }

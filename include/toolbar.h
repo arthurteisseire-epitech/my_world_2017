@@ -25,10 +25,6 @@ typedef struct toolbar {
 	sfVector2f pos;
 	sfVector2f offset;
 	tool_t *tool;
-	int raise_mode;
-	int increasing;
-	int radius;
-	int force;
 } toolbar_t;
 
 int update_tools(world_t *wd);

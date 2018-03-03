@@ -9,7 +9,7 @@
 #include "input.h"
 #include "camera.h"
 #include "map.h"
-#include "toolbar.h"
+#include "stats.h"
 
 int detect_point(world_t *wd, sfVector2i pt, sfVector2i pos)
 {
@@ -39,13 +39,13 @@ int detect_tile(world_t *wd, sfVector2i pt, sfVector2i pos)
 int check_map_2d(world_t *wd, sfVector2i pos)
 {
 	sfVector2i pt;
-	pt.x = NB_ROW - (int)wd->toolbar->raise_mode;
+	pt.x = NB_ROW - (int)wd->stats->raise_mode;
 	int (*collide)(world_t *, sfVector2i, sfVector2i);
 
-	collide = wd->toolbar->raise_mode ? &detect_tile : &detect_point;
+	collide = wd->stats->raise_mode ? &detect_tile : &detect_point;
 	while (pt.x > 0) {
 		pt.x--;
-		pt.y = NB_COL - (int)wd->toolbar->raise_mode;
+		pt.y = NB_COL - (int)wd->stats->raise_mode;
 		while (pt.y > 0) {
 			pt.y--;
 			if (collide(wd, pt, pos))

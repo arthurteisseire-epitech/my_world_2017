@@ -11,9 +11,11 @@
 void set_tool_image(world_t *wd)
 {
 	sfRectangleShape_setTexture(wd->toolbar->tool[0].rect, wd->textures[0], sfTrue);
+	sfRectangleShape_setTexture(wd->toolbar->tool[1].rect, wd->textures[1], sfTrue);
 }
 
 void set_tool_call(toolbar_t *toolbar)
 {
 	toolbar->tool[0].call = toggle_raise_mode;
+	toolbar->tool[1].call = toggle_grid;
 }

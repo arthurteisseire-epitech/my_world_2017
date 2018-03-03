@@ -23,12 +23,13 @@ int set_map_2d(world_t *wd, int **map_3d)
 	return (0);
 }
 
-int set_tiles_from_2d(map_t *map)
+int set_tiles_from_2d(world_t *wd)
 {
 	for (int row = 0; row < NB_ROW - 1; row++) {
 		for (int col = 0; col < NB_COL - 1; col++) {
-			set_shape(map, row, col);
-			update_shadow(map, row, col);
+			set_shape(wd->map, row, col);
+			update_shadow(wd->map, row, col);
+			set_tile_shape(wd, &wd->map->tiles[row][col]);
 		}
 	}
 	return (0);
@@ -49,6 +50,13 @@ int set_shape(map_t *map, int row, int col)
 			i,
 			square_pos[i]);
 	return (0);
+}
+
+void set_tile_shape(world_t *wd, tile_t *tile)
+{
+	sfConvexShape_setTexture(tile->shape, wd->textures[0], sfTrue);
+	sfConvexShape_setOutlineThickness(tile->shape, tile->outline);
+	sfConvexShape_setOutlineColor(tile->shape, sfBlack);
 }
 
 void set_vec2f(sfVector2f *vec, float x, float y)

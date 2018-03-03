@@ -32,28 +32,26 @@ tile_t *new_row(world_t *wd, int row)
 	if (row_tile == NULL)
 		return (NULL);
 	for (int col = 0; col < NB_COL; col++) {
-		row_tile[col].shape = new_shape(wd);
+		new_shape(wd, &row_tile[col]);
 		set_vec2i(&row_tile[col].top, row, col);
 		set_vec2i(&row_tile[col].right, row, col + 1);
 		set_vec2i(&row_tile[col].bottom, row + 1, col + 1);
 		set_vec2i(&row_tile[col].left, row + 1, col);
+		row_tile[col].outline = 2.0;
 		if (row_tile[col].shape == NULL)
 			return (NULL);
 	}
 	return (row_tile);
 }
 
-sfConvexShape *new_shape(world_t *wd)
+int new_shape(world_t *wd, tile_t *tile)
 {
-	sfConvexShape *shape = sfConvexShape_create();
-
-	if (shape == NULL)
-		return (NULL);
-	sfConvexShape_setPointCount(shape, 4);
-	sfConvexShape_setTexture(shape, wd->textures[0], sfTrue);
-	sfConvexShape_setOutlineThickness(shape, 2.0);
-	sfConvexShape_setOutlineColor(shape, sfBlack);
-	return (shape);
+	tile->shape = sfConvexShape_create();
+	if (tile->shape == NULL)
+		return (-1);
+	sfConvexShape_setPointCount(tile->shape, 4);
+	set_tile_shape(wd, tile);
+	return (0);
 }
 
 void set_vec2i(sfVector2i *vec, int row, int col)

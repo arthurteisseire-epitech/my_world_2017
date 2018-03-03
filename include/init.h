@@ -29,7 +29,7 @@ sfRenderWindow *create_window(void);
 int init_tiles(world_t *wd);
 void set_vec2i(sfVector2i *vec, int row, int col);
 tile_t *new_row(world_t *wd, int row);
-sfConvexShape *new_shape(world_t *wd);
+int new_shape(world_t *wd, tile_t *tile);
 void set_tool_image(world_t *wd);
 
 #endif

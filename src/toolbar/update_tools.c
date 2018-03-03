@@ -28,7 +28,7 @@ int update_tools(world_t *wd)
 	for (int i = 0; i < NB_TOOLS; i++) {
 		tool = &wd->toolbar->tool[i];
 		if (is_tool_clicked(wd, tool)) {
-			tool->call(wd->toolbar);
+			tool->call(wd);
 			return (0);
 		}
 	}

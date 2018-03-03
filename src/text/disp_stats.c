@@ -9,5 +9,4 @@
 
 int disp_stats(world_t *wd)
 {
-
 }

@@ -14,7 +14,9 @@
 int init_world(world_t *wd)
 {
 	wd->window = create_window();
+	wd->stats = sfText_create();
 	if (wd->window == NULL ||
+	wd->stats == NULL ||
 	init_camera(wd) == -1 ||
 	init_map(wd) == -1 ||
 	init_textures(wd) == -1 ||

@@ -13,8 +13,8 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 #define TITLE "my_world"
-#define NB_COL 100
-#define NB_ROW 100
+#define NB_COL 26
+#define NB_ROW 26
 #define NB_TEXTURE 5
 
 typedef struct camera camera_t;
@@ -29,6 +29,7 @@ typedef struct world {
 	sfTexture **textures;
 	toolbar_t *toolbar;
 	map_t *map;
+	sfText *stats;
 } world_t;
 
 int run(void);

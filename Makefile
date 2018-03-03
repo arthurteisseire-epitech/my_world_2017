@@ -43,7 +43,7 @@ SRC	=	$(DSRC)main.c \
 
 OBJ	=	$(SRC:.c=.o)
 INC	=	$(realpath ./include)/
-DLIB	=	$(realpath lib)
+DLIB	=	$(realpath lib/my)
 LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 NAME	=	my_world
@@ -53,12 +53,15 @@ CFLAGS	+=	-Wall -W -Wextra -I $(INC) -g
 all: $(NAME)
 
 $(NAME):	$(OBJ)
+	make -C $(DLIB)
 	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(LDFLAGS) 
 
 clean:
+	make clean -C $(DLIB)
 	rm -f $(OBJ)
 
 fclean: clean
+	make fclean -C $(DLIB)
 	rm -f $(NAME)
 
 re:	fclean all

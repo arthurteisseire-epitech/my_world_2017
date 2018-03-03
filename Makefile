@@ -2,7 +2,7 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-##  Ozz
+## Ozz
 ##
 
 CC	=	gcc
@@ -24,7 +24,8 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)shadow_tiles.c \
 		$(DMAP)tile.c \
 		$(DMAP)reset_map_3d.c \
-		$(DTOOL)tool_call.c \
+		$(DTOOL)tool_toggle.c \
+		$(DTOOL)tool_scale.c \
 		$(DTOOL)update_tools.c \
 		$(DINIT)init_world.c \
 		$(DINIT)init_toolbar.c \

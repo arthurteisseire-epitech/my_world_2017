@@ -32,16 +32,3 @@ int toggle_grid(world_t *wd)
 	}
 	return (0);
 }
-
-int increase_radius(world_t *wd)
-{
-	wd->stats->radius += 1;
-	return (0);
-}
-
-int decrease_radius(world_t *wd)
-{
-	if (wd->stats->radius > 1)
-		wd->stats->radius -= 1;
-	return (0);
-}

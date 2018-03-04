@@ -30,14 +30,20 @@ int init_toolbar(world_t *wd)
 
 int set_rectangle(tool_t *tool)
 {
-	sfColor color = {100, 100, 100, 255};
-
+	tool->color = new_color(TOOL_COLOR, TOOL_COLOR, TOOL_COLOR, 255);
 	sfRectangleShape_setSize(tool->rect, tool->size);
 	sfRectangleShape_setPosition(tool->rect, tool->pos);
-	sfRectangleShape_setFillColor(tool->rect, color);
-	sfRectangleShape_setOutlineThickness(tool->rect, 2.0);
-	sfRectangleShape_setOutlineColor(tool->rect, sfWhite);
+	sfRectangleShape_setFillColor(tool->rect, tool->color);
+	sfRectangleShape_setOutlineThickness(tool->rect, 0.0);
+	sfRectangleShape_setOutlineColor(tool->rect, tool->color);
 	return (0);
+}
+
+sfColor new_color(char r, char g, char b, char a)
+{
+	sfColor color = {r, g, b, a};
+
+	return (color);
 }
 
 int init_tools(toolbar_t *toolbar)

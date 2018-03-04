@@ -17,6 +17,7 @@ int init_world(world_t *wd)
 {
 	wd->window = create_window();
 	if (wd->window == NULL ||
+	init_camera(wd) == -1 ||
 	init_textures(wd) == -1 ||
 	init_map(wd) == -1 ||
 	init_tiles(wd) == -1)
@@ -25,7 +26,6 @@ int init_world(world_t *wd)
 		if (load_map(wd) == -1)
 			return (-1);
 	if (init_background(wd) == -1 ||
-	init_camera(wd) == -1 ||
 	init_toolbar(wd) == -1 ||
 	init_stats(wd) == -1)
 		return (-1);

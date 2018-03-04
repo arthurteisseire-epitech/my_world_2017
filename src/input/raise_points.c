@@ -17,17 +17,17 @@ void raise_tile(world_t *wd, sfVector2i pt)
 
 	raise *= force;
 	wd->map->map_3d[pt.x][pt.y] += raise;
-	if (pt.y + 1 < NB_ROW)
+	if (pt.y + 1 < wd->nb_row)
 		wd->map->map_3d[pt.x][pt.y + 1] += raise;
-	if (pt.x + 1 < NB_COL)
+	if (pt.x + 1 < wd->nb_col)
 		wd->map->map_3d[pt.x + 1][pt.y] += raise;
-	if (pt.x + 1 < NB_COL && pt.y + 1 < NB_COL)
+	if (pt.x + 1 < wd->nb_col && pt.y + 1 < wd->nb_col)
 		wd->map->map_3d[pt.x + 1][pt.y + 1] += raise;
 }
 
 void raise_radius(world_t *wd, sfVector2i pt, sfVector2i exp_tl)
 {
-	exp_tl.y = NB_ROW - 1;
+	exp_tl.y = wd->nb_row - 1;
 	while (exp_tl.y > 0) {
 		if (ABS(exp_tl.x - pt.x) + ABS(exp_tl.y - pt.y) < wd->stats->radius)
 			raise_tile(wd, exp_tl);
@@ -39,7 +39,7 @@ void raise(world_t *wd, sfVector2i pt)
 {
 	sfVector2i expand_tile;
 
-	expand_tile.x = NB_ROW - 1;
+	expand_tile.x = wd->nb_row - 1;
 	if (wd->stats->raise_mode == 1) {
 		while (expand_tile.x > 0) {
 			raise_radius(wd, pt, expand_tile);

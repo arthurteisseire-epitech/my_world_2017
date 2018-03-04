@@ -16,10 +16,10 @@ int destroy(world_t *wd)
 	sfRenderWindow_destroy(wd->window);
 	destroy_textures(wd->textures);
 	free(wd->cam);
-	free_map_3d(wd->map->map_3d);
-	free_map_2d(wd->map->map_2d);
+	free_map_3d(wd);
+	free_map_2d(wd);
 	free_toolbar(wd->toolbar);
-	free_tiles(wd->map->tiles);
+	free_tiles(wd);
 	free_stats(wd->stats);
 	free(wd->map);
 	return (0);
@@ -33,21 +33,21 @@ int destroy_textures(sfTexture **textures)
 	return (0);
 }
 
-int free_map_2d(sfVector2f **map_2d)
+int free_map_2d(world_t *wd)
 {
-	for (int row = 0; row < NB_ROW; row++) {
-		free(map_2d[row]);
+	for (int row = 0; row < wd->nb_row; row++) {
+		free(wd->map->map_2d[row]);
 	}
-	free(map_2d);
+	free(wd->map->map_2d);
 	return (0);
 }
 
-int free_map_3d(int **map_3d)
+int free_map_3d(world_t *wd)
 {
-	for (int row = 0; row < NB_ROW; row++) {
-		free(map_3d[row]);
+	for (int row = 0; row < wd->nb_row; row++) {
+		free(wd->map->map_3d[row]);
 	}
-	free(map_3d);
+	free(wd->map->map_3d);
 	return (0);
 }
 

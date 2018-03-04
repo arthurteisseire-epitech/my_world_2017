@@ -12,11 +12,11 @@
 
 int init_tiles(world_t *wd)
 {
-	wd->map->tiles = malloc(sizeof(tile_t *) * NB_ROW);
+	wd->map->tiles = malloc(sizeof(tile_t *) * wd->nb_row);
 
 	if (wd->map->tiles == NULL)
 		return (-1);
-	for (int row = 0; row < NB_ROW; row++) {
+	for (int row = 0; row < wd->nb_row; row++) {
 		wd->map->tiles[row] = new_row(wd, row);
 		if (wd->map->tiles[row] == NULL)
 			return (-1);
@@ -27,11 +27,11 @@ int init_tiles(world_t *wd)
 
 tile_t *new_row(world_t *wd, int row)
 {
-	tile_t *row_tile = malloc(sizeof(tile_t) * NB_COL);
+	tile_t *row_tile = malloc(sizeof(tile_t) * wd->nb_col);
 
 	if (row_tile == NULL)
 		return (NULL);
-	for (int col = 0; col < NB_COL; col++) {
+	for (int col = 0; col < wd->nb_col; col++) {
 		row_tile[col].outline = 2.0;
 		new_shape(wd, &row_tile[col]);
 		set_vec2i(&row_tile[col].top, row, col);

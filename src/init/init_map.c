@@ -16,45 +16,45 @@ int init_map(world_t *wd)
 	wd->map = malloc(sizeof(map_t));
 	if (wd->map == NULL)
 		return (-1);
-	if (init_map_3d(wd->map) == -1)
+	if (init_map_3d(wd) == -1)
 		return (-1);
-	wd->map->map_2d = create_map_2d(wd->cam, wd->map->map_3d);
+	wd->map->map_2d = create_map_2d(wd, wd->map->map_3d);
 	if (wd->map->map_2d == NULL)
 		return (-1);
 	return (0);
 }
 
-int init_map_3d(map_t *map)
+int init_map_3d(world_t *wd)
 {
-	map->map_3d = malloc(sizeof(int *) * NB_ROW);
-	if (map->map_3d == NULL)
+	wd->map->map_3d = malloc(sizeof(int *) * wd->nb_row);
+	if (wd->map->map_3d == NULL)
 		return (-1);
-	for (int y = 0; y < NB_ROW; y++) {
-		map->map_3d[y] = malloc(sizeof(int) * NB_COL);
-		if (map->map_3d[y] == NULL)
+	for (int y = 0; y < wd->nb_row; y++) {
+		wd->map->map_3d[y] = malloc(sizeof(int) * wd->nb_col);
+		if (wd->map->map_3d[y] == NULL)
 			return (-1);
-		for (int x = 0; x < NB_COL; x++)
-			map->map_3d[y][x] = 0;
+		for (int x = 0; x < wd->nb_col; x++)
+			wd->map->map_3d[y][x] = 0;
 	}
 	return (0);
 }
 
-sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
+sfVector2f **create_map_2d(world_t *wd, int **map_3d)
 {
-	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * NB_ROW);
+	sfVector2f **map_2d = malloc(sizeof(sfVector2f *) * wd->nb_row);
 
 	if (map_2d == NULL)
 		return (NULL);
-	for (int y = 0; y < NB_ROW; y++) {
-		map_2d[y] = malloc(sizeof(sfVector2f) * NB_COL);
+	for (int y = 0; y < wd->nb_row; y++) {
+		map_2d[y] = malloc(sizeof(sfVector2f) * wd->nb_col);
 		if (map_2d[y] == NULL)
 			return (NULL);
-		for (int x = 0; x < NB_COL; x++) {
+		for (int x = 0; x < wd->nb_col; x++) {
 			map_2d[y][x] = project_iso_point(
-			cam,
-			x * cam->scale.x + cam->offset.x,
-			y * cam->scale.y + cam->offset.y,
-			map_3d[y][x] * cam->scale.z);
+			wd->cam,
+			x * wd->cam->scale.x + wd->cam->offset.x,
+			y * wd->cam->scale.y + wd->cam->offset.y,
+			map_3d[y][x] * wd->cam->scale.z);
 		}
 	}
 	return (map_2d);

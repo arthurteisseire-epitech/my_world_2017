@@ -11,6 +11,7 @@
 #include "my_world.h"
 #include "map.h"
 #include "save.h"
+#include "init.h"
 
 int load_map(world_t *wd)
 {
@@ -19,6 +20,9 @@ int load_map(world_t *wd)
 	if (fd == -1)
 		return (0);
 	if (load_dimension(wd, fd) == -1)
+		return (-1);
+	if (init_map(wd) == -1 ||
+	init_tiles(wd) == -1)
 		return (-1);
 	if (load_infos(wd, fd) == -1)
 		return (-1);

@@ -17,7 +17,7 @@ int save_map(world_t *wd)
 {
 	int fd = open(wd->pathname, O_CREAT | O_WRONLY,
 		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-	if (write_dimension(fd) == -1)
+	if (write_dimension(wd, fd) == -1)
 		return (-1);
 	if (write_infos(wd, fd) == -1)
 		return (-1);
@@ -27,8 +27,8 @@ int save_map(world_t *wd)
 
 int write_infos(world_t *wd, int fd)
 {
-	for (int row = 0; row < NB_ROW; row++) {
-		for (int col = 0; col < NB_COL; col++) {
+	for (int row = 0; row < wd->nb_row; row++) {
+		for (int col = 0; col < wd->nb_col; col++) {
 			write_line(wd, fd, row, col);
 		}
 	}
@@ -66,10 +66,10 @@ int find_texture(world_t *wd, int row, int col)
 	return (-1);
 }
 
-int write_dimension(int fd)
+int write_dimension(world_t *wd, int fd)
 {
-	char *row = my_itoa(NB_ROW + 1);
-	char *col = my_itoa(NB_COL + 1);
+	char *row = my_itoa(wd->nb_row + 1);
+	char *col = my_itoa(wd->nb_col + 1);
 
 	if (row == NULL || col == NULL)
 		return (-1);

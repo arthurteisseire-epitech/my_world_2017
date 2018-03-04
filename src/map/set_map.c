@@ -11,8 +11,8 @@
 
 int set_map(world_t *wd, int **map_3d)
 {
-	for (int row = 0; row < NB_ROW; row++) {
-		for (int col = 0; col < NB_COL; col++) {
+	for (int row = 0; row < wd->nb_row; row++) {
+		for (int col = 0; col < wd->nb_col; col++) {
 			wd->map->map_2d[row][col] = project_iso_point(
 			wd->cam,
 			col * wd->cam->scale.x + wd->cam->offset.x,

@@ -23,8 +23,8 @@ int toggle_grid(world_t *wd)
 
 	if (wd->map->tiles[0][0].outline == 0)
 		outline += 2;
-	for (int row = 0; row < NB_ROW; row++) {
-		for (int col = 0; col < NB_ROW; col++) {
+	for (int row = 0; row < wd->nb_row; row++) {
+		for (int col = 0; col < wd->nb_row; col++) {
 			tile = &wd->map->tiles[row][col];
 			tile->outline = outline;
 			sfConvexShape_setOutlineThickness(tile->shape, tile->outline);

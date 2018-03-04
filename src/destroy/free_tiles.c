@@ -10,10 +10,12 @@
 #include "map.h"
 #include "destroy.h"
 
-int free_tiles(tile_t **tiles)
+int free_tiles(world_t *wd)
 {
-	for (int row = 0; row < NB_ROW; row++) {
-		for (int col = 0; col < NB_COL; col++)
+	tile_t **tiles = wd->map->tiles;
+
+	for (int row = 0; row < wd->nb_row; row++) {
+		for (int col = 0; col < wd->nb_col; col++)
 			sfConvexShape_destroy(tiles[row][col].shape);
 		free(tiles[row]);
 	}

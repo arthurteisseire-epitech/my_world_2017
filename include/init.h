@@ -16,7 +16,7 @@ typedef struct tile tile_t;
 
 int init_world(world_t *wd);
 int init_map(world_t *wd);
-int init_map_3d(map_t *map);
+int init_map_3d(world_t *wd);
 int init_textures(world_t *wd);
 int init_camera(world_t *wd);
 int init_clock(world_t *wd);

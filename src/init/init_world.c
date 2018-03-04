@@ -13,7 +13,7 @@
 #include "text.h"
 #include "save.h"
 
-int init_world(world_t *wd, int ac)
+int init_world(world_t *wd)
 {
 	wd->window = create_window();
 	if (wd->window == NULL ||
@@ -21,8 +21,8 @@ int init_world(world_t *wd, int ac)
 	init_map(wd) == -1 ||
 	init_tiles(wd) == -1)
 		return (-1);
-	if (ac == 3 && wd->pathname != NULL)
-		if (load_map(wd, wd->pathname))
+	if (wd->pathname != NULL)
+		if (load_map(wd) == -1)
 			return (-1);
 	if (init_background(wd) == -1 ||
 	init_camera(wd) == -1 ||

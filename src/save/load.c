@@ -12,12 +12,12 @@
 #include "map.h"
 #include "save.h"
 
-int load_map(world_t *wd, char *pathname)
+int load_map(world_t *wd)
 {
-	int fd = open(pathname, O_RDONLY);
+	int fd = open(wd->pathname, O_RDONLY);
 
 	if (fd == -1)
-		return (-1);
+		return (0);
 	if (load_dimension(wd, fd) == -1)
 		return (-1);
 	if (load_infos(wd, fd) == -1)

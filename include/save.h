@@ -16,6 +16,6 @@ int write_dimension(int fd);
 int load_dimension(world_t *wd, int fd);
 int set_info(world_t *wd, char *line, int index);
 int load_infos(world_t *wd, int fd);
-int load_map(world_t *wd, char *pathname);
+int load_map(world_t *wd);
 
 #endif

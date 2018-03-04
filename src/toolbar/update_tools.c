@@ -29,7 +29,8 @@ int update_tools(world_t *wd)
 	for (int i = 0; i < NB_TOOLS; i++) {
 		tool = &wd->toolbar->tool[i];
 		if (is_tool_clicked(wd, tool)) {
-			tool->call(wd);
+			if (tool->call(wd) == -1)
+				return (-1);
 			stats_to_str(wd);
 			return (0);
 		}

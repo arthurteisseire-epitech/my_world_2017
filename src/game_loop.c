@@ -11,18 +11,21 @@
 #include "destroy.h"
 #include "save.h"
 
-int run(void)
+int run(char *pathname, int ac)
 {
 	world_t wd;
 	sfTime time = {500};
 
-	if (init_world(&wd) == -1)
+	wd.nb_row = NB_ROW;
+	wd.nb_col = NB_COL;
+	if (init_world(&wd, pathname, ac) == -1)
 		return (-1);
 	while (sfRenderWindow_isOpen(wd.window)) {
 		if (states(&wd, &time) == -1)
 			return (-1);
 	}
-	save_map(&wd, "lala");
+	if (pathname != NULL && ac == 2)
+		save_map(&wd, pathname);
 	if (destroy(&wd) == -1)
 		return (-1);
 	return (0);

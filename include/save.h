@@ -13,5 +13,9 @@ int write_infos(world_t *wd, int fd);
 int write_line(world_t *wd, int fd, int row, int col);
 int find_texture(world_t *wd, int row, int col);
 int write_dimension(int fd);
+int load_dimension(world_t *wd, int fd);
+int set_info(world_t *wd, char *line, int index);
+int load_infos(world_t *wd, int fd);
+int load_map(world_t *wd, char *pathname);
 
 #endif

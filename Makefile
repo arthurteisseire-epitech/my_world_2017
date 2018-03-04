@@ -44,6 +44,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)draw.c \
 		$(DSTATE)states.c \
 		$(DSAVE)save.c \
+		$(DSAVE)load.c \
 		$(DTEXT)disp_stats.c \
 		$(DESTROY)destroy.c \
 		$(DESTROY)free_stats.c \

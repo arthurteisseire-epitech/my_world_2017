@@ -11,17 +11,22 @@
 #include "init.h"
 #include "map.h"
 #include "text.h"
+#include "save.h"
 
-int init_world(world_t *wd)
+int init_world(world_t *wd, char *pathname, int ac)
 {
 	wd->window = create_window();
 	if (wd->window == NULL ||
 	init_textures(wd) == -1 ||
-	init_background(wd) == -1 ||
-	init_camera(wd) == -1 ||
 	init_map(wd) == -1 ||
+	init_tiles(wd) == -1)
+		return (-1);
+	if (ac == 3 && pathname != NULL)
+		if (load_map(wd, pathname))
+			return (-1);
+	if (init_background(wd) == -1 ||
+	init_camera(wd) == -1 ||
 	init_toolbar(wd) == -1 ||
-	init_tiles(wd) == -1 ||
 	init_stats(wd) == -1)
 		return (-1);
 	return (0);
@@ -42,7 +47,7 @@ sfRenderWindow *create_window(void)
 	sfRenderWindow *window;
 
 	window = sfRenderWindow_create(
-		mode, TITLE, sfResize | /*sfFullscreen |*/ sfClose, NULL);
+		mode, TITLE, sfResize /*| sfFullscreen */| sfClose, NULL);
 	if (!window)
 		return (NULL);
 	sfRenderWindow_setFramerateLimit(window, 60);

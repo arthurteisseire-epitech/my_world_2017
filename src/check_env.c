@@ -17,9 +17,19 @@ int len_tokens(char **tokens)
 	return (i);
 }
 
-int check_env_var(char *env_var)
+void free_tokens(char **tokens)
 {
 	int i = 0;
+
+	while (tokens[i] != NULL) {
+		free(tokens[i]);
+		i++;
+	}
+	free(tokens);
+}
+
+int check_env_var(char *env_var)
+{
 	char **key_value = split(env_var, "=");
 
 	if (key_value == NULL)
@@ -30,11 +40,7 @@ int check_env_var(char *env_var)
 		else
 			return (1);
 	}
-	while (key_value[i] != NULL) {
-		free(key_value[i]);
-		i++;
-	}
-	free(key_value);
+	free_tokens(key_value);
 	return (0);
 }
 

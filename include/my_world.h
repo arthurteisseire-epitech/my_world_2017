@@ -13,8 +13,8 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 #define TITLE "my_world"
-#define NB_COL 26
-#define NB_ROW 26
+#define NB_COL 6
+#define NB_ROW 6
 #define NB_TEXTURE 8
 
 typedef struct camera camera_t;
@@ -33,11 +33,14 @@ typedef struct world {
 	map_t *map;
 	stats_t *stats;
 	sfSprite *background;
+	int nb_row;
+	int nb_col;
 } world_t;
 
-int run(void);
+int run(char *pathname, int ac);
 int check_env(char **env);
 int check_env_var(char *env_var);
 int len_tokens(char **tokens);
+void free_tokens(char **tokens);
 
 #endif

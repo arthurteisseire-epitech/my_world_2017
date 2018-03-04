@@ -7,6 +7,7 @@ Shortcuts:
 	Mouse-right		:	decrease terrain
 	Mouse-left		:	increase terrain
 	Space			:	reinitiate map
+	r			:	randomize map
 	Arrow-down		:	incline down map
 	Arrow-up		:	incline up map
 	z			:	move up camera

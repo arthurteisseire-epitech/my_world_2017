@@ -42,5 +42,6 @@ void raise(world_t *wd, sfVector2i pt);
 int update_shadow(map_t *map, int row, int col);
 int reset_map_3d(world_t *wd);
 void set_tile_shape(world_t *wd, tile_t *tile);
+int random_map(world_t *wd);
 
 #endif

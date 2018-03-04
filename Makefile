@@ -23,6 +23,7 @@ SRC	=	$(DSRC)main.c \
 		$(DMAP)set_map.c \
 		$(DMAP)draw_map.c \
 		$(DMAP)shadow_tiles.c \
+		$(DMAP)random_map.c \
 		$(DMAP)tile.c \
 		$(DMAP)reset_map_3d.c \
 		$(DTOOL)tool_toggle.c \

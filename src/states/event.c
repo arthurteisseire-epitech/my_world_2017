@@ -40,10 +40,12 @@ static void handle_click(world_t *wd)
 	}
 }
 
-static void reset_map(world_t *wd)
+static void restart_map(world_t *wd)
 {
 	if (sfKeyboard_isKeyPressed(sfKeySpace))
 		reset_map_3d(wd);
+	if (sfKeyboard_isKeyPressed(sfKeyR))
+		random_map(wd);
 }
 
 int event(world_t *wd)
@@ -52,7 +54,7 @@ int event(world_t *wd)
 		handle_exit(wd);
 		if (update_tools(wd) == 0)
 			return (1);
-		reset_map(wd);
+		restart_map(wd);
 		handle_click(wd);
 		move_offset_map(wd);
 		scale_map(wd);

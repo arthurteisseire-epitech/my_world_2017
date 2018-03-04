@@ -36,6 +36,7 @@ int init_map_3d(map_t *map)
 		for (int x = 0; x < NB_COL; x++)
 			map->map_3d[y][x] = 0;
 	}
+	map->map_3d[0][0] = -6;
 	return (0);
 }
 

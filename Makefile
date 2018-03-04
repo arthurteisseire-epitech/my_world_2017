@@ -14,6 +14,7 @@ DESTROY	=	$(DSRC)destroy/
 DINPUT	=	$(DSRC)input/
 DTOOL	=	$(DSRC)toolbar/
 DTEXT	=	$(DSRC)text/
+DSAVE	=	$(DSRC)save/
 
 SRC	=	$(DSRC)main.c \
 		$(DSRC)game_loop.c \
@@ -42,6 +43,7 @@ SRC	=	$(DSRC)main.c \
 		$(DSTATE)update.c \
 		$(DSTATE)draw.c \
 		$(DSTATE)states.c \
+		$(DSAVE)save.c \
 		$(DTEXT)disp_stats.c \
 		$(DESTROY)destroy.c \
 		$(DESTROY)free_stats.c \

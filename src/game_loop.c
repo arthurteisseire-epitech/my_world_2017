@@ -9,6 +9,7 @@
 #include "states.h"
 #include "init.h"
 #include "destroy.h"
+#include "save.h"
 
 int run(void)
 {
@@ -21,6 +22,7 @@ int run(void)
 		if (states(&wd, &time) == -1)
 			return (-1);
 	}
+	save_map(&wd, "lala");
 	if (destroy(&wd) == -1)
 		return (-1);
 	return (0);

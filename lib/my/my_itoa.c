@@ -11,7 +11,9 @@ int nb_len(int nb)
 {
 	int len = 0;
 
-	while (nb > 0) {
+	if (nb == 0)
+		return (1);
+	while (nb != 0) {
 		nb /= 10;
 		len++;
 	}
@@ -33,13 +35,18 @@ int my_pow(int nb, int power)
 
 char *my_itoa(int nb)
 {
+	int isneg = nb < 0 ? 1 : 0;
 	int len = nb_len(nb);
-	char *res = malloc(sizeof(char) * (len + 1));
-	int i = 0;
+	char *res = malloc(sizeof(char) * (len + 1 + isneg));
+	int i = isneg;
 	int power;
 
-	res[len] = '\0';
-	while (len > 0) {
+	res[len + isneg] = '\0';
+	if (isneg) {
+		res[0] = '-';
+		nb *= -1;
+	}
+	while (len + isneg > isneg) {
 		power = my_pow(10, len - 1);
 		res[i] = nb / power;
 		nb -= res[i] * power;

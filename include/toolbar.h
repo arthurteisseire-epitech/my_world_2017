@@ -32,7 +32,7 @@ typedef struct toolbar {
 int update_tools(world_t *wd);
 int update_tool(world_t *wd, tool_t *tool);
 int is_tool_clicked(world_t *wd, tool_t *tool);
-int is_tool_mouseover(world_t *wd, tool_t *tool);
+int is_mouse_on_tool(world_t *wd, tool_t *tool);
 int increase_force(world_t *wd);
 void set_tool_call(toolbar_t *toolbar);
 int toggle_grid(world_t *wd);

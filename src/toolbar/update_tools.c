@@ -32,7 +32,7 @@ int update_tool(world_t *wd, tool_t *tool)
 			return (-1);
 		stats_to_str(wd);
 		return (1);
-	} else if (is_tool_mouseover(wd, tool)) {
+	} else if (is_mouse_on_tool(wd, tool)) {
 		color = new_color(120, 120, 120, 255);
 		sfRectangleShape_setOutlineThickness(tool->rect, 2.5);
 		sfRectangleShape_setFillColor(tool->rect, color);
@@ -46,25 +46,20 @@ int update_tool(world_t *wd, tool_t *tool)
 
 int is_tool_clicked(world_t *wd, tool_t *tool)
 {
-	sfVector2i mouse = sfMouse_getPositionRenderWindow(wd->window);
-	int right = tool->pos.x + tool->size.x;
-	int bottom = tool->pos.y + tool->size.y;
-
 	if (wd->event.type == sfEvtMouseButtonPressed && 
-		(mouse.x > tool->pos.x && mouse.x < right) &&
-		(mouse.y > tool->pos.y && mouse.y < bottom))
+	is_mouse_on_tool(wd, tool))
 		return (1);
 	return (0);
 }
 
-int is_tool_mouseover(world_t *wd, tool_t *tool)
+int is_mouse_on_tool(world_t *wd, tool_t *tool)
 {
 	sfVector2i mouse = sfMouse_getPositionRenderWindow(wd->window);
 	int right = tool->pos.x + tool->size.x;
 	int bottom = tool->pos.y + tool->size.y;
 
 	if ((mouse.x > tool->pos.x && mouse.x < right) &&
-		(mouse.y > tool->pos.y && mouse.y < bottom))
+	(mouse.y > tool->pos.y && mouse.y < bottom))
 		return (1);
 	return (0);
 }

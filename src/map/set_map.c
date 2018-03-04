@@ -15,8 +15,8 @@ int set_map(world_t *wd, int **map_3d)
 		for (int col = 0; col < NB_COL; col++) {
 			wd->map->map_2d[row][col] = project_iso_point(
 			wd->cam,
-			col * wd->cam->scale.x + wd->cam->offset.x, 
-			row * wd->cam->scale.y + wd->cam->offset.y, 
+			col * wd->cam->scale.x + wd->cam->offset.x,
+			row * wd->cam->scale.y + wd->cam->offset.y,
 			map_3d[row][col] * wd->cam->scale.z);
 			set_tile(wd, row, col);
 		}

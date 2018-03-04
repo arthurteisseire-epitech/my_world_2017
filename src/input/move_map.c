@@ -33,7 +33,7 @@ int scale_map(world_t *wd)
 {
 	float delta = wd->event.mouseWheelScroll.delta;
 
-	if (wd->event.type == sfEvtMouseWheelScrolled && 
+	if (wd->event.type == sfEvtMouseWheelScrolled &&
 	wd->cam->scale.x + delta * ZOOM_SPEED > 0) {
 		wd->cam->scale.x += delta * ZOOM_SPEED;
 		wd->cam->scale.y += delta * ZOOM_SPEED;

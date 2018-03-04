@@ -64,7 +64,7 @@ int load_dimension(world_t *wd, int fd)
 {
 	char *dimension = get_next_line(fd);
 	char **tokens;
-	
+
 	if (dimension == NULL)
 		return (-1);
 	tokens = split(dimension, "x \t");

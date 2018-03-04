@@ -52,8 +52,8 @@ sfVector2f **create_map_2d(camera_t *cam, int **map_3d)
 		for (int x = 0; x < NB_COL; x++) {
 			map_2d[y][x] = project_iso_point(
 			cam,
-			x * cam->scale.x + cam->offset.x, 
-			y * cam->scale.y + cam->offset.y, 
+			x * cam->scale.x + cam->offset.x,
+			y * cam->scale.y + cam->offset.y,
 			map_3d[y][x] * cam->scale.z);
 		}
 	}

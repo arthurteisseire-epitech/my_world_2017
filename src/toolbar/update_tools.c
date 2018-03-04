@@ -46,7 +46,7 @@ int update_tool(world_t *wd, tool_t *tool)
 
 int is_tool_clicked(world_t *wd, tool_t *tool)
 {
-	if (wd->event.type == sfEvtMouseButtonPressed && 
+	if (wd->event.type == sfEvtMouseButtonPressed &&
 	is_mouse_on_tool(wd, tool))
 		return (1);
 	return (0);

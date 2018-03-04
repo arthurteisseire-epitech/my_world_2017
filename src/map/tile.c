@@ -42,7 +42,7 @@ int is_det_pos(sfVector2i d, sfVector2i t)
 sfVector2i get_vec(sfVector2i vec_1, sfVector2i vec_2)
 {
 	sfVector2i vec;
- 
+
 	vec.x = vec_2.x - vec_1.x;
 	vec.y = vec_2.y - vec_1.y;
 	return (vec);

@@ -30,7 +30,7 @@ int write_infos(world_t *wd, int fd)
 	for (int row = 0; row < NB_ROW; row++) {
 		for (int col = 0; col < NB_COL; col++) {
 			write_line(wd, fd, row, col);
-		}	
+		}
 	}
 	return (0);
 }

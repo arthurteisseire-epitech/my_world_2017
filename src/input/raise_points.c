@@ -45,6 +45,6 @@ void raise(world_t *wd, sfVector2i pt)
 			raise_radius(wd, pt, expand_tile);
 			expand_tile.x--;
 		}
-	} else 
+	} else
 		wd->map->map_3d[pt.x][pt.y] += wd->stats->increasing ? -1 : 1;
 }

@@ -61,8 +61,8 @@ int init_tools(toolbar_t *toolbar)
 			tool->pos.x = toolbar->pos.x;
 			tool->pos.y = toolbar->pos.y;
 		} else {
-			tool->pos.x = toolbar->tool[i - 1].pos.x + 
-					toolbar->offset.x + 
+			tool->pos.x = toolbar->tool[i - 1].pos.x +
+					toolbar->offset.x +
 					toolbar->tool[i - 1].size.x;
 			tool->pos.y = toolbar->tool[i - 1].pos.y;
 		}

@@ -10,8 +10,21 @@
 #include "map.h"
 #include "camera.h"
 #include "init.h"
+#include "save.h"
 
 int init_map(world_t *wd)
+{
+	if (init_map_arrays(wd) == -1 ||
+	init_tiles(wd) == -1)
+		return (-1);
+	if (wd->pathname != NULL) {
+		if (load_map(wd) == -1)
+			return (-1);
+	}
+	return (0);
+}
+
+int init_map_arrays(world_t *wd)
 {
 	wd->map = malloc(sizeof(map_t));
 	if (wd->map == NULL)

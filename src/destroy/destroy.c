@@ -14,6 +14,7 @@
 int destroy(world_t *wd)
 {
 	sfRenderWindow_destroy(wd->window);
+	sfSprite_destroy(wd->background);
 	destroy_textures(wd->textures);
 	free(wd->cam);
 	free_map_3d(wd);

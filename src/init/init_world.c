@@ -18,17 +18,9 @@ int init_world(world_t *wd)
 	wd->window = create_window();
 	if (wd->window == NULL ||
 	init_camera(wd) == -1 ||
-	init_textures(wd) == -1)
-		return (-1);
-	if (wd->pathname != NULL) {
-		if (load_map(wd) == -1)
-			return (-1);
-	} else {
-		if (init_map(wd) == -1 ||
-		init_tiles(wd) == -1)
-			return (-1);
-	}
-	if (init_background(wd) == -1 ||
+	init_textures(wd) == -1 ||
+	init_map(wd) == -1 ||
+	init_background(wd) == -1 ||
 	init_toolbar(wd) == -1 ||
 	init_stats(wd) == -1)
 		return (-1);
@@ -50,7 +42,7 @@ sfRenderWindow *create_window(void)
 	sfRenderWindow *window;
 
 	window = sfRenderWindow_create(
-		mode, TITLE, sfResize /*| sfFullscreen */| sfClose, NULL);
+		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL);
 	if (!window)
 		return (NULL);
 	sfRenderWindow_setFramerateLimit(window, 60);

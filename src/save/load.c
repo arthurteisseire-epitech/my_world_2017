@@ -21,7 +21,7 @@ int load_map(world_t *wd)
 		return (0);
 	if (load_dimension(wd, fd) == -1)
 		return (-1);
-	if (init_map(wd) == -1 ||
+	if (init_map_arrays(wd) == -1 ||
 	init_tiles(wd) == -1)
 		return (-1);
 	if (load_infos(wd, fd) == -1)

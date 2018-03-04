@@ -13,9 +13,9 @@
 #include "save.h"
 #include "map.h"
 
-int save_map(world_t *wd, char *pathname)
+int save_map(world_t *wd)
 {
-	int fd = open(pathname, O_CREAT | O_WRONLY,
+	int fd = open(wd->pathname, O_CREAT | O_WRONLY,
 		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	if (write_dimension(fd) == -1)
 		return (-1);

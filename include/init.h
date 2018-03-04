@@ -14,7 +14,7 @@ typedef struct tool tool_t;
 typedef struct map map_t;
 typedef struct tile tile_t;
 
-int init_world(world_t *wd, char *pathname, int ac);
+int init_world(world_t *wd, int ac);
 int init_map(world_t *wd);
 int init_map_3d(map_t *map);
 int init_textures(world_t *wd);

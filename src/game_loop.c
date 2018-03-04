@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include "my.h"
 #include "my_world.h"
 #include "states.h"
 #include "init.h"
@@ -18,14 +19,15 @@ int run(char *pathname, int ac)
 
 	wd.nb_row = NB_ROW;
 	wd.nb_col = NB_COL;
-	if (init_world(&wd, pathname, ac) == -1)
+	wd.pathname = pathname;
+	if (init_world(&wd, ac) == -1)
 		return (-1);
 	while (sfRenderWindow_isOpen(wd.window)) {
 		if (states(&wd, &time) == -1)
 			return (-1);
 	}
 	if (pathname != NULL && ac == 2)
-		save_map(&wd, pathname);
+		save_map(&wd);
 	if (destroy(&wd) == -1)
 		return (-1);
 	return (0);

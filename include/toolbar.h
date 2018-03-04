@@ -9,7 +9,7 @@
 #define TOOLBAR_H
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
-#define NB_TOOLS 6
+#define NB_TOOLS 7
 #define TOOL_SIZE 80
 
 typedef struct tool tool_t;

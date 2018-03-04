@@ -21,6 +21,7 @@ int init_textures(world_t *wd)
 	wd->textures[5] = sfTexture_createFromFile("assets/increase.png", NULL);
 	wd->textures[6] = sfTexture_createFromFile("assets/low_force.png", NULL);
 	wd->textures[7] = sfTexture_createFromFile("assets/high_force.png", NULL);
+	wd->textures[8] = sfTexture_createFromFile("assets/save.png", NULL);
 	if (wd->textures[0] == NULL ||
 		wd->textures[1] == NULL ||
 		wd->textures[2] == NULL ||
@@ -28,7 +29,8 @@ int init_textures(world_t *wd)
 		wd->textures[4] == NULL ||
 		wd->textures[5] == NULL ||
 		wd->textures[6] == NULL ||
-		wd->textures[7] == NULL)
+		wd->textures[7] == NULL ||
+		wd->textures[8] == NULL)
 		return (-1);
 	return (0);
 }

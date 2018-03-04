@@ -14,8 +14,12 @@ static char get_shadow_intensity(map_t *map, int row, int col)
 				map->map_2d[row][col].y;
 	float tile_width = map->map_2d[row][col + 1].x -
 				map->map_2d[row + 1][col].x;
-	int intensity = 255 - (tile_width / tile_height) * 40;
+	int intensity;
 
+	if (tile_height != 0)
+		 intensity = 255 - (tile_width / tile_height) * 40;
+	if (intensity > 255)
+		return (255);
 	return (intensity < 130 ? 130 : intensity);
 }
 

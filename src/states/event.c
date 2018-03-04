@@ -44,8 +44,10 @@ static void restart_map(world_t *wd)
 {
 	if (sfKeyboard_isKeyPressed(sfKeySpace))
 		reset_map_3d(wd);
-	if (sfKeyboard_isKeyPressed(sfKeyR))
+	if (sfKeyboard_isKeyPressed(sfKeyR)) {
+		reset_map_3d(wd);
 		random_map(wd);
+	}
 }
 
 int event(world_t *wd)

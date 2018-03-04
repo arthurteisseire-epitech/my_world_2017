@@ -15,7 +15,7 @@
 #define TITLE "my_world"
 #define NB_COL 26
 #define NB_ROW 26
-#define NB_TEXTURE 7
+#define NB_TEXTURE 8
 
 typedef struct camera camera_t;
 typedef struct toolbar toolbar_t;
@@ -32,6 +32,7 @@ typedef struct world {
 	toolbar_t *toolbar;
 	map_t *map;
 	stats_t *stats;
+	sfSprite *background;
 } world_t;
 
 int run(void);

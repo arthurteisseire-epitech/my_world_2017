@@ -16,13 +16,23 @@ int init_world(world_t *wd)
 {
 	wd->window = create_window();
 	if (wd->window == NULL ||
+	init_textures(wd) == -1 ||
+	init_background(wd) == -1 ||
 	init_camera(wd) == -1 ||
 	init_map(wd) == -1 ||
-	init_textures(wd) == -1 ||
 	init_toolbar(wd) == -1 ||
 	init_tiles(wd) == -1 ||
 	init_stats(wd) == -1)
 		return (-1);
+	return (0);
+}
+
+int init_background(world_t *wd)
+{
+	wd->background = sfSprite_create();
+	if (wd->background == NULL)
+		return (-1);
+	sfSprite_setTexture(wd->background, wd->textures[0], sfFalse);
 	return (0);
 }
 

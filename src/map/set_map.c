@@ -53,7 +53,7 @@ int set_shape(map_t *map, int row, int col)
 
 void set_tile_shape(world_t *wd, tile_t *tile)
 {
-	sfConvexShape_setTexture(tile->shape, wd->textures[0], sfTrue);
+	sfConvexShape_setTexture(tile->shape, wd->textures[1], sfTrue);
 	sfConvexShape_setOutlineThickness(tile->shape, tile->outline);
 	sfConvexShape_setOutlineColor(tile->shape, sfBlack);
 }

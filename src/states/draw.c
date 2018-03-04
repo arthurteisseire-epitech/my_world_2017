@@ -16,6 +16,7 @@
 int draw(world_t *wd)
 {
 	sfRenderWindow_clear(wd->window, sfBlack);
+	sfRenderWindow_drawSprite(wd->window, wd->background, NULL);
 	draw_map(wd);
 	toolbar_disp(wd);
 	sfRenderWindow_drawText(wd->window, wd->stats->text->text, NULL);

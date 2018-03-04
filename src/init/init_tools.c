@@ -10,12 +10,12 @@
 
 void set_tool_image(world_t *wd)
 {
-	sfRectangleShape_setTexture(wd->toolbar->tool[0].rect, wd->textures[1], sfFalse);
-	sfRectangleShape_setTexture(wd->toolbar->tool[1].rect, wd->textures[2], sfFalse);
-	sfRectangleShape_setTexture(wd->toolbar->tool[2].rect, wd->textures[3], sfFalse);
-	sfRectangleShape_setTexture(wd->toolbar->tool[3].rect, wd->textures[4], sfFalse);
-	sfRectangleShape_setTexture(wd->toolbar->tool[4].rect, wd->textures[5], sfFalse);
-	sfRectangleShape_setTexture(wd->toolbar->tool[5].rect, wd->textures[6], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[0].rect, wd->textures[2], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[1].rect, wd->textures[3], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[2].rect, wd->textures[4], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[3].rect, wd->textures[5], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[4].rect, wd->textures[6], sfFalse);
+	sfRectangleShape_setTexture(wd->toolbar->tool[5].rect, wd->textures[7], sfFalse);
 }
 
 void set_tool_call(toolbar_t *toolbar)

@@ -21,6 +21,7 @@ int init_textures(world_t *wd);
 int init_camera(world_t *wd);
 int init_clock(world_t *wd);
 int init_stats(world_t *wd);
+int init_background(world_t *wd);
 
 int init_toolbar(world_t *wd);
 int init_tools(toolbar_t *toolbar);

@@ -34,7 +34,7 @@ int update_tool(world_t *wd, tool_t *tool)
 		return (1);
 	} else if (is_mouse_on_tool(wd, tool)) {
 		color = new_color(120, 120, 120, 255);
-		sfRectangleShape_setOutlineThickness(tool->rect, 2.5);
+		sfRectangleShape_setOutlineThickness(tool->rect, 4.0);
 		sfRectangleShape_setFillColor(tool->rect, color);
 	} else {
 		color = new_color(TOOL_COLOR, TOOL_COLOR, TOOL_COLOR, 255);

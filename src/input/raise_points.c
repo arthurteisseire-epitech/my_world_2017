@@ -27,9 +27,12 @@ void raise_tile(world_t *wd, sfVector2i pt)
 
 void raise_radius(world_t *wd, sfVector2i pt, sfVector2i exp_tl)
 {
+	int point;
+
 	exp_tl.y = wd->nb_row - 1;
 	while (exp_tl.y > 0) {
-		if (ABS(exp_tl.x - pt.x) + ABS(exp_tl.y - pt.y) < wd->stats->radius)
+		point = ABS(exp_tl.x - pt.x) + ABS(exp_tl.y - pt.y);
+		if (point < wd->stats->radius)
 			raise_tile(wd, exp_tl);
 		exp_tl.y--;
 	}

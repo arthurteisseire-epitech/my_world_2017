@@ -28,6 +28,7 @@ int init_toolbar(world_t *wd);
 int init_tools(toolbar_t *toolbar);
 int set_rectangle(tool_t *tool);
 
+int check_textures(sfTexture **textures);
 sfRenderWindow *create_window(void);
 int init_tiles(world_t *wd);
 void set_vec2i(sfVector2i *vec, int row, int col);

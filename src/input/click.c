@@ -38,19 +38,28 @@ int detect_tile(world_t *wd, sfVector2i pt, sfVector2i pos)
 
 int check_map_2d(world_t *wd, sfVector2i pos)
 {
-	sfVector2i pt;
-	pt.x = wd->nb_row - wd->stats->raise_mode;
+	sfVector2i pt = {
+		wd->nb_row - wd->stats->raise_mode,
+		wd->nb_col - wd->stats->raise_mode
+	};
+
+	while (pt.x > 0) {
+		pt.x--;
+		if (check_row(wd, pos, pt) == 1)
+			return (1);
+	}
+	return (0);
+}
+
+int check_row(world_t *wd, sfVector2i pos, sfVector2i pt)
+{
 	int (*collide)(world_t *, sfVector2i, sfVector2i);
 
 	collide = wd->stats->raise_mode ? &detect_tile : &detect_point;
-	while (pt.x > 0) {
-		pt.x--;
-		pt.y = wd->nb_col - wd->stats->raise_mode;
-		while (pt.y > 0) {
-			pt.y--;
-			if (collide(wd, pt, pos))
-				return (1);
-		}
+	while (pt.y > 0) {
+		pt.y--;
+		if (collide(wd, pt, pos))
+			return (1);
 	}
 	return (0);
 }

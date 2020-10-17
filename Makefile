@@ -57,7 +57,7 @@ DLIB	=	lib/my/
 LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 NAME	=	my_world
-LDFLAGS	=	-lc_graph_prog -lm
+LDFLAGS	=	-lcsfml-window -lcsfml-graphics -lm
 CFLAGS	+=	-Wall -W -Wextra -I $(INC) -g
 
 all: $(NAME)

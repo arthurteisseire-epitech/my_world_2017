@@ -14,7 +14,7 @@
 #include "init.h"
 #include "save.h"
 
-static int print_full_file(char *pathname)
+static int print_full_file(const char *pathname)
 {
 	int fd = open(pathname, O_RDONLY);
 	char buffer[4096];
@@ -32,20 +32,21 @@ static int print_full_file(char *pathname)
 static int check_args(int ac, char **av)
 {
 	int status;
+	const char *help_path = "Readme.md";
 
 	if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
-		print_full_file("readme");
+		print_full_file(help_path);
 		return (0);
 	}
 	if (ac == 1) {
 		status = run(NULL);
 		if (status == -1)
-			print_full_file("readme");
+			print_full_file(help_path);
 		return (status);
 	} else if (ac == 2) {
 		status = run(av[1]);
 		if (status == -1)
-			print_full_file("readme");
+			print_full_file(help_path);
 		return (status);
 	}
 	return (1);
